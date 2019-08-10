@@ -1,0 +1,5 @@
+.htaccess
+public_html/includes/
+public_html/php_errors.log
+public_html/php.ini
+public_html/userpanel.php

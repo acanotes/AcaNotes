@@ -1,0 +1,104 @@
+@font-face 
+{
+    font-family: 'Cantarell';
+    src: url("../Fonts/Cantarell-Regular.ttf");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: Cantarell;
+ }
+ 
+ body
+ {
+    background-color: #ddd;
+ }
+ 
+#nameArea {
+    width: 150px;
+    height: 25px;
+    background-color: #FFFFFF;
+    resize: none;
+}
+
+#commentArea {
+    width: 400px;
+    height: 80px;
+    background-color: #FFFFFF;
+    resize: none;
+}
+
+/*
+#leftMargin
+{
+    margin-left: 20px;
+}
+*/
+
+button {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    margin-bottom: 60px;
+    /* border: none; */
+}
+
+.comment-box
+{
+    width: 815px;
+    padding: 20px;
+    margin-bottom: 4px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    position: relative;
+    margin-left: 100px;
+}
+
+.comment-box p
+{
+    /* font-size: 14px; */
+}
+
+.editForm
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.editForm button
+{
+    width: 40px;
+    height: 25px;
+    color: #282828;
+    background-color: #728a9a;
+    opacity: 0.7;
+}
+
+.editForm button:hover
+{
+    opacity: 1;
+}
+
+.deleteForm
+{
+    position: absolute;
+    top: 0px;
+    right: 60px;
+}
+
+.deleteForm button
+{
+    width: 60px;
+    height: 25px;
+    color: #282828;
+    background-color: #728a9a;
+    opacity: 0.7;
+}
+
+.deleteForm button:hover
+{
+    opacity: 1;
+}
