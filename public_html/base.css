@@ -1,0 +1,41 @@
+:root {
+  --p1:#36acb8; /* Primary 1 color: teal! */
+  --p2:#3696b8; /* primary 2 */
+  --p3:#d6f2f5;
+  --black: rgb(30,39,56);
+  --white: rgb(254,254,254);
+}
+html {
+  font-size:14pt;
+}
+body {
+  background-color:var(--white);
+  color:var(--black);
+  box-sizing: border-box;
+  font-family:'Open Sans', Arial, sans-serif;
+  font-weight:300;
+  line-height: 1.6;
+  margin:0px;
+  scroll-behavior: smooth;
+}
+
+/* To complete! */
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+a {}
+input {}
+input[type2] {} /* can specify some special looking ones*/ 
+textarea {}
+label {}
+button {} /* Default buttons*/
+
+/* Content organization CSS */
+
+/* Nav Bar stuff*/
+
+/* Footer */
