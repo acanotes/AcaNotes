@@ -377,7 +377,6 @@ For the sake of time, the optional feature of displaying _sorted_ categories/top
 
 ```php
 <?php
-//create_cat.php
 include 'connect.php';
 include 'header.php';
          
