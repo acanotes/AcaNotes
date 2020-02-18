@@ -60,7 +60,7 @@ CREATE TABLE users (
 
 	UNIQUE INDEX   user_name_unique (user_name),
 	PRIMARY KEY    (user_id)
-) TYPE=INNODB;
+) ENGINE=InnoDB;
 ```
 
 
@@ -78,7 +78,7 @@ CREATE TABLE categories (
     
 	UNIQUE INDEX       cat_name_unique (cat_name),
 	PRIMARY KEY (cat_id)
-) TYPE=INNODB;
+) ENGINE=InnoDB;
 ```
 
 
@@ -100,7 +100,7 @@ CREATE TABLE topics (
 	topic_by        INT(8) NOT NULL, /* user_id who created the topic */
     
 	PRIMARY KEY (topic_id)
-) TYPE=INNODB;
+) ENGINE=InnoDB;
 ```
 
 
@@ -122,7 +122,7 @@ CREATE TABLE posts (
 	post_by         INT(8) NOT NULL,
     
 	PRIMARY KEY (post_id)
-) TYPE=INNODB;
+) ENGINE=InnoDB;
 ```
 
 
