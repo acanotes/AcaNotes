@@ -4,8 +4,9 @@ error_reporting(E_ALL);
 require_once('../../vendor/autoload.php');
 if (isset($_POST['stripeToken']) && isset($_POST['amount'])){
   try {
-    $liveKey = 'sk_live_BdMrvW6U5LbRlxinRxbb3IaU00Kcp7fRuP';
-    $testKey = 'sk_test_Qx4YuQKAjtmg77poMQ0mWoNu00hgoUawFH';
+    // KEYS REDACTED: DON'T PUT PRIVATE KEYS ON PUBLIC FILES. KEYS WILL BE ROLLED ASAP.
+    $liveKey = '';
+    $testKey = '';
     
     \Stripe\Stripe::setApiKey($testKey);
     // Token is created using Checkout or Elements!
