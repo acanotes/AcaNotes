@@ -24,6 +24,8 @@ brew install homebrew/apache/httpd24 --with-mpm-event
 
 Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and `mod_proxy_fcgi`, and comment out the `Listen` directive
 
+### Run the servers and platform
+
 To get the server up and running for PHP code in `web/public`, run
 
 ```cmd
@@ -34,6 +36,9 @@ To start up the frontend, cd into `web` and `npm start` or from root directory r
 ```cmd
 npm start --prefix=web
 ```
+
+To start up the database and populate it with default data, run
+
 
 ## Installations
 
