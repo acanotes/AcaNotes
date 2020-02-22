@@ -1,0 +1,16 @@
+.button-topic img
+{
+  max-width: 200px;
+  width: 100%;
+}
+/*.button-topic {
+  
+}*/
+#title-head-wrapper {
+  background-color: var(--p1);
+}
+#title-head > h1 {
+  color:var(--white);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
