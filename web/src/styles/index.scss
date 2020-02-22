@@ -1,8 +1,17 @@
 @import '~antd/dist/antd.css';
 @import '~./reset.scss';
+@import './vars.scss';
 html {
   font-size:14px;
 }
 body {
   font-family: 'Open Sans', Arial, sans-serif;
+  color: $black;
+  background-color: $white;
+}
+h1 {
+  font-size: $font7;
+}
+h2 {
+  font-size: $font6;
 }

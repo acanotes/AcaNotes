@@ -46,7 +46,7 @@ brew services start mariadb
 Test connection by going to http://localhost:5000/connect.php
 
 
-Populate the database with default data:
+Populate the local database with default data:
 ```cmd
 mysql -h spvunyfm598dw67v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u jkxyx78jy5ggulvw -pquwwf5br6nbc2giz thw42gj9sxaws9w7 < populate_data.sql
 ```

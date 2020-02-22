@@ -1,0 +1,10 @@
+@import 'styles/vars.scss';
+
+.Navbar {
+  .login-item {
+    float: right;
+    .login-icon {
+      transform: rotate(-90deg);  
+    }
+  }
+}
