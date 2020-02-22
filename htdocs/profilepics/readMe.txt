@@ -1,0 +1,1 @@
+This folder is where user profile pictures are stored. Do not delete this folder or it will stop working!
