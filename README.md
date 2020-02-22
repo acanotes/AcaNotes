@@ -24,6 +24,23 @@ brew install homebrew/apache/httpd24 --with-mpm-event
 
 Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and `mod_proxy_fcgi`, and comment out the `Listen` directive
 
+To get the server up and running for PHP code in `web/public`, run
+
+```cmd
+heroku local web -f Procfile.dev
+```
+
+To start up the frontend, cd into `web` and `npm start` or from root directory run
+```cmd
+npm start --prefix=web
+```
+
+## Installations
+
+Install PHP, composer, npm, and Node.js
+
+
+
 ## Heroku Setup
 
 Add the proper build-packs
