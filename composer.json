@@ -1,6 +1,11 @@
 {
-    "name": "stone.tao/aca-notes",
-    "description": "Acanotes Platform",
-    "type": "project",
-    "require": {}
+  "name": "stone.tao/aca-notes",
+  "description": "Acanotes Platform",
+  "type": "project",
+  "require": {
+    
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
 }

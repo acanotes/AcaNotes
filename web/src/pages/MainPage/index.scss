@@ -1,0 +1,13 @@
+@import 'styles/vars.scss';
+
+.MainPage {
+  .main-container {
+    padding: 40px;
+    background-color: $theme-color-1;
+    min-height: 80vh;
+    height: 12 * 30px;
+    h1 {
+      color: $white;
+    }
+  }
+}
