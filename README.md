@@ -37,7 +37,23 @@ To start up the frontend, cd into `web` and `npm start` or from root directory r
 npm start --prefix=web
 ```
 
-To start up the database and populate it with default data, run
+To start up MariaDB, on Mac OS run
+
+```cmd
+brew services start mariadb
+```
+
+Test connection by going to http://localhost:5000/connect.php
+
+
+Populate the database with default data:
+```cmd
+mysql -h spvunyfm598dw67v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u jkxyx78jy5ggulvw -pquwwf5br6nbc2giz thw42gj9sxaws9w7 < populate_data.sql
+```
+
+## Common Issues...
+
+On Mac OS, if you can't seem to run `heroku local web -f Procfile.dev`, make sure to kill the httpd process. Find its PID by running `httpd` and then kill it
 
 
 ## Installations
