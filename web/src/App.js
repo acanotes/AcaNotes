@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './styles/index.scss';
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import MainPage from './pages/MainPage';
+import { UserProvider } from './UserContext';
 
 function App() {
   const [user, setUser] = useState({username:"", email:"", points:""});
