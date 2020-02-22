@@ -1,0 +1,51 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+#details {
+  margin-bottom: 10px;
+}
+#details input {
+  width:100%;
+  padding-left: 30px;
+}
+#payment-form {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-radius:5px;
+  padding:25px;
+  padding-bottom: 15px;
+  width: 600px;
+  box-shadow:0 2px 22px var(--boxshadow1t);
+}
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+  width:100%;
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 2px 12px 0 #e6ebf1;
+  border:1px solid var(--p1);
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+#card-errors {
+  color: #fa755a;
+}
+.StripeElement:hover {
+  border:1px solid var(--p1);
+}

@@ -1,0 +1,9 @@
+.inputtext {
+  display: block;
+  margin-bottom: 10px;
+  width:100%;
+}
+.register-form input {
+  margin-right: 10px;
+  height:34px;
+}

@@ -1,0 +1,473 @@
+:root {
+  --boxshadow1: rgba(46, 83, 81);
+  --boxshadow1t: rgba(46, 83, 81, 0.18);
+  --boxshadow1t2: rgba(46, 83, 81, 0.1);
+  /* Box shadow 1 transparent */
+  
+  --bx1: 0 2px 22px var(--boxshadow1t);
+  --p1t: rgba(54, 172, 184, 0.25);
+  /* Primary 1 transparent */
+  --p1: rgb(54, 172, 184);
+  --mdc-theme-background: rgb(54,172,184);
+  --mdc-theme-primary: rgb(54,172,184);
+  /* Primary 1 color: teal! */
+  --p2: rgb(54, 150, 184);
+  --p2l: #5aa9c4; /* Light*/
+  --p2l2: #7fbcd1;
+  --p2l3: #a3cfde;
+  --p22: rgb(33, 133, 170);
+  /* primary 2 */
+  --p2t: rgba(54, 150, 184, 0.25);
+  --p3: #d6f2f5;
+  --black: rgb(35, 43, 62);
+  --white: rgb(254, 254, 254);
+}
+
+html {
+  font-size: 14pt;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--white);
+  color: var(--black);
+  box-sizing: border-box;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0px;
+  font-size:1em;
+  
+  scroll-behavior: smooth;
+}
+
+/* To complete! */
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+a {
+  color: var(--p2);
+  padding-bottom: 2px;
+  position: relative;
+  font-style: normal;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a::after {
+  height: 2px;
+  content: "";
+  background-color:var(--p2t);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  transition: background-color 0.2s;
+}
+a:hover::after, a:focus::after {
+  height: 2px;
+  content: "";
+  background-color:var(--p2);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a[clear] {
+  color: inherit;
+}
+a[clear]::after, a[clear]:hover::after, a[clear]:focus::after   {
+  width: 0;
+}
+
+form {
+  
+}
+*[boxed], form[boxed] {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius:5px;
+  padding:25px;
+  width: 600px;
+  box-shadow:0 2px 16px var(--boxshadow1t);
+}
+form[boxed] {
+  padding-bottom: 15px;
+}
+label {}
+select {
+  border: 1px solid transparent;
+  font-size:1em;
+  padding: 10px 12px;
+  box-shadow: 0 1px 4px 0 #e6ebf1;
+  border-radius:5px;
+  color:currentColor;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+select option, select optgroup {
+  font-family: sans-serif;
+}
+input {
+  box-shadow: 0 1px 4px 0 #e6ebf1;
+  border:none;
+  color:currentColor;
+  font-size:16px;
+  border-radius:5px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input::placeholder {
+  color:rgb(125, 151, 166);
+}
+select:hover, input:hover, select:focus, input:focus {
+  border:1px solid var(--p1);
+}
+input:focus, select:focus {
+  box-shadow: 0 2px 12px 0 #e6ebf1;
+}
+
+input[type2] {
+  border: none;
+  box-shadow: none;
+  height: 30px;
+  margin-top: 16px;
+  color: var(--black);
+  border-bottom: 2px solid var(--p1t);
+  border-radius: 0;
+  transition: border-bottom 0.2s;
+}
+
+input[type2]:focus, input[type2]:hover {
+  border-bottom: 2px solid var(--p1);
+}
+
+/* can specify some special looking ones*/
+textarea {}
+
+label {}
+
+button {}
+
+/* Default buttons*/
+
+button {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  background-color: #fefefe;
+  color: var(--p1);
+  border: 1px solid var(--p1);
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  padding: 4px 8px 4px 8px; 
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+button.btn-filled {
+  color: var(--white);
+  background-color:var(--p1);
+}
+.mdc-button {
+  padding:2px 8px 0 8px;
+}
+.mdc-button--raised, .mdc-button--unelevated {
+  padding: 2px 16px 0px 16px;
+}
+/* Nav Bar stuff*/
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  position: fixed;
+  transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: box-shadow 0.2s, background-color 0.2s;
+  background-color: var(--white);
+  z-index: 1000;
+  height: 60px;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+}
+
+header .headerLinks a {
+  list-style: none;
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 20px;
+  border-bottom: 4px solid #fefefe;
+  transition: border-bottom 0.2s;
+}
+
+header a.active {
+  border-bottom: 4px solid var(--p1);
+}
+
+header > ul {
+  margin: 0;
+}
+
+header > .headerLinks a:hover {
+  border-bottom: 4px solid var(--p1);
+}
+
+header.shadow {
+  box-shadow: var(--bx1);
+  /*background-color: var(--p1);*/
+  /*color:#fefefe;*/
+}
+
+header form {
+  height: 100%;
+}
+.header-profile-pic {
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.header-profile-pic-wrapper {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  
+}
+
+.header-profile-pic-wrapper::before {
+  content: "";
+  box-shadow: 0 0px 12px 4px var(--boxshadow1t);
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  margin-top: 10px;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(20px, 20px);
+  transition: width 0.3s, height 0.3s, transform 0.3s;
+}
+
+.header-profile-pic-wrapper:hover::before {
+  width: 40px;
+  height: 40px;
+  transform: translate(0%, 0%);
+}
+.header-bell {
+  margin-right:20px;
+  cursor: pointer;
+  display: inline-block;
+}
+.header-bell path {
+  fill:var(--black);
+}
+
+.user-panels {
+  height:60px;
+}
+.user-dropdown-wrapper {
+  position: absolute;
+  right: 0px;
+  display: none;
+  top:60px;
+}
+.username {
+  color:var(--white);
+  display:inline-block;
+}
+.user-profile {
+  margin-bottom: 10px;
+}
+.user-points {
+  margin-left: 10px;
+  color:var(--p22);
+}
+.user-dropdown {
+  background-color:var(--white);
+  width:250px;
+  border-radius:5px;
+  box-shadow:var(--bx1);
+}
+.user-top {
+  padding:15px;
+  background-color:var(--p22);
+}
+.user-bottom {
+  padding:15px;
+  background-color: var(--white);
+}
+.badge-filled {
+  border-radius:5px;
+  background-color:var(--p1);
+  padding:4px 8px;
+  display: inline-block;
+}
+.badge {
+  border-radius:5px;
+  background-color:var(--white);
+  padding:4px 8px;
+  display: inline-block;
+}
+/* Content Organization */
+.container {
+  background-color: white;
+  color: var(--black);
+}
+
+.content-wrapper {
+  margin-top: 60px;
+  width: calc(86%);
+  margin-left: 7%;
+  min-height: calc(100vh - 60px - 120px); /* subtract height of header and footer*/
+}
+
+/* Footer */
+
+.fullwidth {
+  margin-left:-7vw;
+  width:100vw;
+}
+@media only screen and (max-width:991px) {
+  .content-wrapper {
+    margin-top: 60px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+  }
+  .fullwidth {
+    margin-left: -20px;
+    width:100vw;
+  }
+}
+
+/* OLD CSS */
+#menubar {
+  width: 100%;
+  height: 48px;
+  background-color: #0597FF;
+
+  position: fixed;
+  z-index: 8;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+
+  top: 0px;
+  left: 0px;
+
+  /*
+            opacity: 0.8;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            */
+}
+
+#navbar-left {
+  position: absolute;
+  display: inline-block;
+  left: 12px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+}
+
+#navbar-right {
+  position: absolute;
+  display: inline-block;
+  margin-top: -6px;
+  right: 22px;
+}
+
+.MenuItem {
+  list-style: none;
+  display: inline-block;
+
+  margin-top: 12px;
+}
+
+.MenuItem a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbutton {
+  height: 24px;
+}
+
+/*
+        body
+        {
+            background-color: #0597FF;
+        }
+        */
+
+#nav-logo {
+  margin-left: 0px;
+  margin-right: 32px;
+}
+
+#nav-logo img {
+  width: 24px;
+  height: 24px;
+}
+
+.MenuButton {
+  opacity: 0.9;
+  margin-right: 24px;
+
+  -webkit-transition: all 0.35s ease-out;
+  -khtml-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+  -ms-transition: all 0.35s ease-out;
+  transition: all 0.35s ease-out;
+  -o-transition: all 0.35s ease-out;
+}
+
+.MenuButton:hover {
+  opacity: 0.5;
+}
+
+.MenuButton img {
+  height: 24px;
+}
+
+.nav-login {
+  right: 12px;
+}
+
+#debug-signup {
+  right: 12px;
+}
+
+#nav-today {
+  width: 67px;
+}
+
+#nav-wiki {
+  width: 103px;
+}
+
+#nav-discuss {
+  width: 101px;
+}
