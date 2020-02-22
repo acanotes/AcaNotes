@@ -1,1 +1,1 @@
-web: npm start --prefix=web
+web: vendor/bin/heroku-php-apache2
