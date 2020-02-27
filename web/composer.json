@@ -1,5 +1,8 @@
 {
     "name": "acanotes/web",
+    "scripts" : {
+      "post-install-cmd" : "cd web && composer install && composer update" 
+    }
     "require": {
         "firebase/php-jwt": "^5.0"
     }
