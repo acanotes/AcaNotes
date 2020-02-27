@@ -8,7 +8,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
 include '../../inc/connect.php';
 use \Firebase\JWT\JWT;
-echo getenv("JWT_KEY");
+
 if (isset($data['username']))
 {
 
@@ -21,6 +21,7 @@ if (isset($data['username']))
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck < 1)
     {
+        http_response_code(420);
         $res['error'] = "Incorrect Username or Password";
         echo json_encode($res);
         exit();
@@ -34,7 +35,8 @@ if (isset($data['username']))
             $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
             if($hashedPwdCheck == false)
             {
-                $res['error'] = "Incorrect Username or Password - 2";
+                http_response_code(420);
+                $res['error'] = "Incorrect Username or Password";
                 echo json_encode($res);
                 exit();
             }
@@ -43,7 +45,7 @@ if (isset($data['username']))
               if ($verified == 1) {
                 $key = getenv("JWT_KEY");
                 $payload = array(
-                    "username" => $row['uid'],
+                    "username" => $row['user_uid'],
                     "firstName" => $row['user_first'],
                     "lastName" => $row['user_last'],
                     "email" => $row['user_email'],
@@ -58,6 +60,7 @@ if (isset($data['username']))
               }
               else
               {
+                http_response_code(420);
                 $res['error'] = "Incorrect Username or Password";
                 echo json_encode($res);
                 exit();

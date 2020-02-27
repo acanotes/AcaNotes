@@ -3,13 +3,22 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import UserContext from 'UserContext';
 
-import { errorLogger } from 'utils';
+import { errorLogger, setCookie } from 'utils';
 import config from 'configuration';
 import axios from 'axios';
 
 import { Button, Form, Input, Icon, Checkbox, message } from 'antd';
 import './index.less';
-
+const tokenGetClaims = token => {
+  if (!token) {
+    return {};
+  }
+  const tokenArray = token.split('.');
+  if (tokenArray.length !== 3) {
+    return {};
+  }
+  return JSON.parse(window.atob(tokenArray[1].replace('-', '+').replace('_', '/')));
+};
 const Login = () => {
 
   const { register, handleSubmit, setValue } = useForm();
@@ -30,7 +39,11 @@ const Login = () => {
     console.log(data);
     axios.post(config.API_URL + config.routes.auth.login, data).then((response: any) => {
       console.log(response.data);
-      let user = response.data.user;
+
+      const claims = tokenGetClaims(response.data.token);
+      console.log(claims);
+      userHooks.setUser({token:response.data.token, loggedIn: true, ...claims});
+      setCookie('acanotes_alpaca_token', response.data.token, 7);
 
     }).catch(errorLogger).finally(() => {
       setLoading(false);
@@ -77,7 +90,7 @@ const Login = () => {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <a href="/register">register now!</a>
         </Form.Item>
       </Form>
     </div>

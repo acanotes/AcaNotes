@@ -8,7 +8,8 @@ export default {
   routes: {
     auth: {
       login: "/api/v1/auth/login.php",
-      register: "/api/v1/auth/register.php"
+      register: "/api/v1/auth/register.php",
+      verify:"/api/v1/auth/verify.php"
     },
     create: {
       note: "/api/v1/createNote.php"
