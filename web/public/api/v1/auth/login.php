@@ -8,7 +8,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
 include '../../inc/connect.php';
 use \Firebase\JWT\JWT;
-
+echo getenv("JWT_KEY");
 if (isset($data['username']))
 {
 

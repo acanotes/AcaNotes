@@ -1,4 +1,4 @@
-let root = 'https://acanotes.com';
+let root = '';
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   root = 'http://localhost:5000';
 }
