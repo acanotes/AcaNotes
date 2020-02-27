@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
-import { UserConsumer } from 'UserContext';
+import UserContext from 'UserContext';
 
 import { Menu, Icon } from 'antd';
 import './index.less';
@@ -11,9 +11,9 @@ const { SubMenu } = Menu;
 
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("home");
+  const [menu, setMenu] = useState("");
   const history = useHistory();
-  const userHooks = React.useContext(UserConsumer);
+  const userHooks = React.useContext(UserContext);
   useEffect(() => {
     // console.log(history.location.pathname);
     switch (history.location.pathname) {
@@ -71,7 +71,7 @@ const Navbar = () => {
           <Icon type="down-square" className="login-icon" />
           Login
         </Menu.Item>,
-        <Menu.Item key="register" className="register-item" onClick={() => history.push('/login')}>
+        <Menu.Item key="register" className="register-item" onClick={() => history.push('/register')}>
           <Icon type="down-square" className="register-icon" />
           Register
         </Menu.Item>]

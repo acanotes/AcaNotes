@@ -1,19 +1,19 @@
 import React from 'react';
 
 import Navbar from 'components/Navbar';
-import Login from 'components/Login';
+import Register from 'components/Auth/Register';
 
 import './index.less';
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
-    <div className="LoginPage">
+    <div className="RegisterPage">
       <Navbar />
       <div className="main-container">
-        <Login />
+        <Register />
       </div>
     </div>
   )
 }
 
-export default LoginPage
+export default RegisterPage

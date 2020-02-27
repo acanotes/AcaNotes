@@ -4,7 +4,8 @@ import 'styles/index.less';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import MainPage from './pages/MainPage';
-import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/Auth/RegisterPage';
+import LoginPage from './pages/Auth/LoginPage';
 
 import { UserProvider } from './UserContext';
 
@@ -17,6 +18,7 @@ function App() {
           <UserProvider value={{user: user, setUser: setUser}}>
             <Route path="/" exact component={MainPage} />
             <Route path="/login" exact component={LoginPage} />
+            <Route path="/register" exact component={RegisterPage} />
           </UserProvider>
         </Switch>
       </div>

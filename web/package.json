@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.25.0",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
     "less": "^3.11.1",
@@ -12,6 +12,7 @@
     "react": "^16.12.0",
     "react-app-rewired": "^2.1.5",
     "react-dom": "^16.12.0",
+    "react-hook-form": "^4.9.8",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
   },
