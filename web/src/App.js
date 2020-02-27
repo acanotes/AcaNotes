@@ -4,6 +4,8 @@ import './styles/index.scss';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import MainPage from './pages/MainPage';
+import LoginPage from './pages/LoginPage';
+
 import { UserProvider } from './UserContext';
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
         <Switch>
           <UserProvider value={{user: user, setUser: setUser}}>
             <Route path="/" exact component={MainPage} />
+            <Route path="/login" exact component={LoginPage} />
           </UserProvider>
         </Switch>
       </div>

@@ -1,0 +1,21 @@
+@import 'styles/vars.scss';
+
+.LoginPage {
+  .main-container {
+    .login-title {
+      margin-bottom: 1rem;
+    }
+    .login-form {
+      max-width: 600px;
+      margin: auto;
+      .login-form-forgot {
+        float: right;
+      }
+      .login-form-button {
+        width: 100%;
+      }
+    }
+    // import a page container mixin
+    padding: 10%;
+  }
+}
