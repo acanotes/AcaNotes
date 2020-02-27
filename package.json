@@ -13,7 +13,6 @@
   },
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:5000",
   "bugs": {
     "url": "https://github.com/acanotes/AcaNotes/issues"
   },

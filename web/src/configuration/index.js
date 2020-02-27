@@ -7,8 +7,8 @@ export default {
   API_URL: root,
   routes: {
     auth: {
-      login: "/api/v1/login.php",
-      register: "/api/v1/register.php"
+      login: "/api/v1/auth/login.php",
+      register: "/api/v1/auth/register.php"
     },
     create: {
       note: "/api/v1/createNote.php"
