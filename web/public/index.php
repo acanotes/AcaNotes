@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 
-require __DIR__ . '/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 $request = $_SERVER['REQUEST_URI'];
 
