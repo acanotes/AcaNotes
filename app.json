@@ -25,7 +25,13 @@
       {
         "scripts": {
           "postbuild": "npm run build",
-        }
+        },
+        "buildpacks": [
+          {
+            "url": "https://github.com/mars/create-react-app-buildpack.git",
+            "url": "heroku/php"
+          }
+        ],
       }
     }
   }
