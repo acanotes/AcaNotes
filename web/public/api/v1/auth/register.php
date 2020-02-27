@@ -18,6 +18,13 @@ if (isset($data['username']))
 
     $res = array('error' => '');
 
+    if (empty($uid) || empty($pwd) || empty($first) || empty($email)) {
+      $res['error'] = "Missing required parameters";
+      echo json_encode($res);
+      http_response_code(400);
+      exit();
+    }
+
 
     $sql = "SELECT * FROM users WHERE user_uid = '$uid'";
     $result = mysqli_query($conn, $sql);
@@ -25,6 +32,8 @@ if (isset($data['username']))
 
     if ($resultCheck > 0)
     {
+
+      http_response_code(420);
       $res['error'] = "User exists";
       echo json_encode($res);
       exit();
@@ -37,7 +46,7 @@ if (isset($data['username']))
       $vkey = md5(time().$uid); //generate verification key
 
       //Insert user into database
-      $insertsql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd, verified, vkey, user_title, user_rating) VALUES ('Stone', 'Tao', '$email', 'stonet2000', '$hashedPwd', 1, '$vkey' , 'Freshie', NULL);";
+      $insertsql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd, verified, vkey, user_title, user_rating) VALUES ('$first', '$last', '$email', '$uid', '$hashedPwd', 1, '$vkey' , 'Freshie', NULL);";
       if(mysqli_query($conn, $insertsql))
       {
         $res['res'] = "Registered successfully";
@@ -45,6 +54,7 @@ if (isset($data['username']))
         exit();
       }
       else {
+        http_response_code(420);
         $res['error'] = "Registration failed";
         echo json_encode($res);
         exit();
