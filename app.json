@@ -9,7 +9,7 @@
   "website": "https://acanotes.com",
   "repository": "https://github.com/acanotes/AcaNotes/",
   "scripts": {
-
+    "heroku-postbuild": "cd web && npm install && npm run build"
   },
   "env": {
 
