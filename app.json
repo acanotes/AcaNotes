@@ -24,7 +24,7 @@
     "review": {
       {
         "scripts": {
-          "postbuild": "npm run build",
+          "heroku-postbuild": "cd web && npm install && npm run build"
         },
         "buildpacks": [
           {
