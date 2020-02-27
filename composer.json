@@ -6,7 +6,9 @@
 
   },
   "scripts": {
-    "heroku-postbuild": "cd web && php composer.phar install --no-dev"
+    "compile":[
+      "cd web && php composer.phar install --no-dev"",
+    ]
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
