@@ -3,7 +3,7 @@
   "description": "Acanotes Platform",
   "type": "project",
   "scripts" : {
-    "post-install-cmd" : "cd web && composer install && composer update"
+    "post-install-cmd" : "cd web && composer install"
   },
   "require": {
 
