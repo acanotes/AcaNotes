@@ -21,5 +21,12 @@
     }
   ],
   "environments": {
+    "review": {
+      {
+        "scripts": {
+          "postbuild": "npm run build",
+        }
+      }
+    }
   }
 }
