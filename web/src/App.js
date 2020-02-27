@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import './styles/index.scss';
+import 'styles/index.less';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import MainPage from './pages/MainPage';

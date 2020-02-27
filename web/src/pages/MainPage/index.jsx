@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import Navbar from 'components/Navbar';
 
-import './index.scss';
+import './index.less';
 
 const MainPage = () => {
   return (
