@@ -62,7 +62,10 @@ const Navbar = () => {
         Create Note
       </Menu.Item>
       {userHooks.user.loggedIn ?
-        <Menu.Item key="logout" className="logout-item" onClick={() => history.push('/login')}>
+        <Menu.Item key="logout" className="logout-item" onClick={() => {
+          userHooks.logout();
+          history.push('/');
+        }}>
           <Icon type="down-square" className="logout-icon" />
           Logout
         </Menu.Item>

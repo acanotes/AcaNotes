@@ -2,29 +2,21 @@ import React, { useState, useEffect } from 'react';
 
 import { useForm } from 'react-hook-form';
 import UserContext from 'UserContext';
+import { useHistory } from "react-router-dom";
 
-import { errorLogger, setCookie } from 'utils';
+import { errorLogger, setCookie, tokenGetClaims } from 'utils';
 import config from 'configuration';
 import axios from 'axios';
 
 import { Button, Form, Input, Icon, Checkbox, message } from 'antd';
 import './index.less';
-const tokenGetClaims = token => {
-  if (!token) {
-    return {};
-  }
-  const tokenArray = token.split('.');
-  if (tokenArray.length !== 3) {
-    return {};
-  }
-  return JSON.parse(window.atob(tokenArray[1].replace('-', '+').replace('_', '/')));
-};
+
 const Login = () => {
 
   const { register, handleSubmit, setValue } = useForm();
   const [loading, setLoading] = useState(false);
   const userHooks = React.useContext(UserContext);
-
+  const history = useHistory();
   const onSubmit = (data) => {
     if (!data.username) {
       message.error('Missing username or email');
@@ -44,6 +36,8 @@ const Login = () => {
       console.log(claims);
       userHooks.setUser({token:response.data.token, loggedIn: true, ...claims});
       setCookie('acanotes_alpaca_token', response.data.token, 7);
+      message.success("Logged in");
+      history.push("/");
 
     }).catch(errorLogger).finally(() => {
       setLoading(false);

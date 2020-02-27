@@ -26,3 +26,14 @@ export function setCookie(cname, cvalue, exdays) {
   var expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
+export const tokenGetClaims = token => {
+  if (!token) {
+    return {};
+  }
+  const tokenArray = token.split('.');
+  if (tokenArray.length !== 3) {
+    return {};
+  }
+  return JSON.parse(window.atob(tokenArray[1].replace('-', '+').replace('_', '/')));
+};
