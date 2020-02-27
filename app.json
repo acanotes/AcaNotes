@@ -1,0 +1,42 @@
+{
+  "name": "AcaNotes",
+  "description": "AcaNotes Platform",
+  "keywords": [
+    "productivity",
+    "notes",
+    "education"
+  ],
+  "website": "https://acanotes.com",
+  "repository": "https://github.com/acanotes/AcaNotes/",
+  "scripts": {
+
+  },
+  "env": {
+
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack.git"
+    },
+    {
+      "url": "heroku/php"
+    }
+  ],
+  "environments": {
+    "review": {
+      {
+        "scripts": {
+          "heroku-postbuild": "cd web && npm install && npm run build"
+        },
+        "buildpacks": [
+          {
+            "url": "https://github.com/mars/create-react-app-buildpack.git"
+          },
+          {
+            "url": "heroku/php"
+          }
+        ],
+      }
+    }
+  }
+}
