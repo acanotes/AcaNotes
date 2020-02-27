@@ -2,8 +2,11 @@
   "name": "stone.tao/aca-notes",
   "description": "Acanotes Platform",
   "type": "project",
+  "scripts" : {
+    "post-install-cmd" : "cd web && composer install && composer update"
+  },
   "require": {
-    
+
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
