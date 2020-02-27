@@ -9,14 +9,14 @@
   "website": "https://acanotes.com",
   "repository": "https://github.com/acanotes/AcaNotes/",
   "scripts": {
-    "postdeploy": "cd web && npm install && npm run build"
+
   },
   "env": {
 
   },
   "buildpacks": [
     {
-      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+      "url": "https://github.com/mars/create-react-app-buildpack.git"
     },
     {
       "url": "heroku/php"
@@ -26,11 +26,11 @@
     "review": {
       {
         "scripts": {
-          "postdeploy": "cd web && npm install && npm run build"
+          "heroku-postbuild": "cd web && npm install && npm run build"
         },
         "buildpacks": [
           {
-            "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+            "url": "https://github.com/mars/create-react-app-buildpack.git"
           },
           {
             "url": "heroku/php"
