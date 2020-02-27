@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, Icon } from 'antd';
-import './index.scss';
+import './index.less';
 const { SubMenu } = Menu;
 
 

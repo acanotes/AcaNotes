@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, Input, Icon, Checkbox } from 'antd';
 import Navbar from 'components/Navbar';
 
-import './index.scss';
+import './index.less';
 
 const LoginPage = () => {
   return (
