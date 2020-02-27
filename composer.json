@@ -2,9 +2,6 @@
   "name": "stone.tao/aca-notes",
   "description": "Acanotes Platform",
   "type": "project",
-  "scripts" : {
-    "post-install-cmd" : "cd web && composer install"
-  },
   "require": {
 
   },
