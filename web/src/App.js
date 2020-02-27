@@ -9,7 +9,7 @@ import LoginPage from './pages/LoginPage';
 import { UserProvider } from './UserContext';
 
 function App() {
-  const [user, setUser] = useState({username:"", email:"", points:""});
+  const [user, setUser] = useState({username:"", email:"", points:"", loggedIn: false});
   return (
     <Router>
       <div>
