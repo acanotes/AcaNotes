@@ -22,7 +22,7 @@ First
 brew install homebrew/apache/httpd24 --with-mpm-event
 ```
 
-Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and `mod_proxy_fcgi`, and comment out the `Listen` directive
+Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and `mod_proxy_fcgi` and `mod_rewrite`, and comment out the `Listen` directive
 
 ### Run the servers and platform
 
@@ -32,10 +32,15 @@ To get the server up and running for PHP code in `web/public`, run
 heroku local web -f Procfile.dev
 ```
 
+This runs our development PHP backend from http://localhost:5000
+
 To start up the frontend, cd into `web` and `npm start` or from root directory run
+
 ```cmd
 npm start --prefix=web
 ```
+
+This will run the frontend from http://localhost:3000. 
 
 To start up MariaDB, on Mac OS run
 
@@ -43,13 +48,37 @@ To start up MariaDB, on Mac OS run
 brew services start mariadb
 ```
 
-Test connection by going to http://localhost:5000/connect.php
+Test connection by going to http://localhost:5000/api/connect.php
 
 
 Populate the local database with default data:
 ```cmd
 mysql -h spvunyfm598dw67v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u jkxyx78jy5ggulvw -pquwwf5br6nbc2giz thw42gj9sxaws9w7 < populate_data.sql
 ```
+
+## Local Production Setup
+
+Build your most recent code
+
+```bash
+cd web && npm run build
+```
+
+Start up MariaDB
+
+```bash
+brew services start mariadb
+```
+
+Run the server
+
+```bash
+heroku local web
+```
+
+Both frontend and backend are serviced here through http://localhost:5000
+
+Note all backend only works through http://localhost:5000/api
 
 ## Common Issues...
 
