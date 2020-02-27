@@ -42,7 +42,6 @@ const Login = () => {
   };
   // register inputs
   useEffect(() => {
-    console.log(process.env)
     register({ name: 'username' });
     register({ name: 'password' });
   }, []);
