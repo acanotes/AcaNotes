@@ -5,7 +5,7 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-require '../../../../vendor/autoload.php';
+require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
 include '../../inc/connect.php';
 use \Firebase\JWT\JWT;
 
