@@ -1,18 +1,17 @@
 import React from 'react';
-
-import Navbar from 'components/Navbar';
 import Login from 'components/Auth/Login';
-
+import MainLayout from 'layouts/MainLayout';
 import './index.less';
 
 const LoginPage = () => {
   return (
-    <div className="LoginPage">
-      <Navbar />
-      <div className="main-container">
-        <Login />
+    <MainLayout>
+      <div className="LoginPage">
+        <div className="main-container">
+          <Login />
+        </div>
       </div>
-    </div>
+    </MainLayout>
   )
 }
 

@@ -4,9 +4,11 @@ import 'styles/index.less';
 import {message} from 'antd';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+
 import MainPage from './pages/MainPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
+
 import { getCookie, setCookie, tokenGetClaims } from './utils'
 import { verifyToken } from './actions/auth'
 import { UserProvider } from './UserContext';
@@ -30,14 +32,24 @@ function App() {
     }
     // otherwise, do nothing
   },[]);
+  const requireAuth = (component) => {
+    if (user.loggedIn) {
+      return component;
+    }
+    else {
+      message.info("You need to login to access that page")
+      return <Redirect href="/" />;
+    }
+  }
   return (
     <Router>
       <div>
         <Switch>
           <UserProvider value={{user: user, setUser: setUser, logout: () => {setUser({token:"", loggedIn: false}); setCookie("acanotes_alpaca_token", ""); message.info("Logged out")}}}>
-            <Route path="/" exact component={MainPage} />
+            <Route path="/" exact component={() => {return (<MainPage />)}} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/register" exact component={RegisterPage} />
+            <Route path="/create" exact component={() => requireAuth(RegisterPage)} />
           </UserProvider>
         </Switch>
       </div>
