@@ -1,6 +1,9 @@
 <?php
 
   $url = getenv('DB_URL');
+  if (empty($url)) {
+    $url = getenv('JAWSDB_MARIA_URL');
+  }
   $dbparts = parse_url($url);
   $hostname = $dbparts['host'];
   $username = $dbparts['user'];
