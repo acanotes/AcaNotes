@@ -6,7 +6,7 @@ import { errorLogger, setCookie, tokenGetClaims } from 'utils';
 import config from 'configuration';
 import axios from 'axios';
 import { Form, Checkbox, Button, Icon, Input, Select, Upload, message } from 'antd';
-import { uploadNote } from 'actions/create';
+import { uploadNote } from 'actions/notes';
 
 import './index.less';
 

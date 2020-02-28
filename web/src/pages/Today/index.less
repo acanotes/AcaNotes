@@ -1,7 +1,74 @@
 @import '../../styles/base.less';
 .TodayPage {
-  .main-container {
+  .container {
     // import a page container mixin
-    .container()
+    .container();
+    .card {
+      margin-bottom: @margin-base * 2;
+      margin-top: @margin-base * 2;
+      border-radius: 5px;
+      padding: 25px;
+      width: 600px;
+      box-shadow: 0 2px 16px @box-shadow-1;
+      background-color: @white;
+      width: 100%;
+    }
+    .top-users {
+      .title {
+
+      }
+      .users {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        .user-card {
+          position: relative;
+          display: inline-block;
+          max-width: 240px;
+          margin-top: @margin-base * 2;
+          margin-bottom: @margin-base * 2;
+          margin-right: @margin-base * 2;
+          margin-left: @margin-base * 2;
+          text-align: center;
+          font-size: @font2;
+          .stand-in-avatar {
+
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin: auto;
+          }
+          .user-name {
+            margin-top: @margin-base;
+          }
+        }
+      }
+    }
+    .notes-section {
+
+      .notes {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        .notes-card {
+          box-shadow: 0 2px 16px @box-shadow-1;
+          padding: @margin-base;
+          border-radius: 4px;
+          position: relative;
+          display: inline-block;
+          max-width: 264px;
+          margin-top: @margin-base * 2;
+          margin-bottom: @margin-base * 2;
+          margin-right: @margin-base;
+          margin-left: @margin-base;
+          .notes-title {
+            font-size: @font2;
+            font-weight: 600;
+          }
+        }
+      }
+    }
   }
 }

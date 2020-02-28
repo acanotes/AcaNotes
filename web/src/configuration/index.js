@@ -13,6 +13,16 @@ export default {
     },
     create: {
       note: "/api/v1/content/createNote.php"
+    },
+    announcements: {
+      latest: "/api/v1/announcements/latest.php"
+    },
+    users: {
+      getTop: "/api/v1/users/getTop.php"
+    },
+    notes: {
+      getTopNotes: "/api/v1/notes/getTopNotes.php",
+      latest:"/api/v1/notes/latest.php"
     }
   }
 }
