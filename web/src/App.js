@@ -15,10 +15,11 @@ import TodayPage from './pages/Today';
 import { getCookie, setCookie, tokenGetClaims } from './utils'
 import { verifyToken } from './actions/auth'
 import { UserProvider } from './UserContext';
+let tokenChecked = false;
 
 function App() {
-  const [user, setUser] = useState({token:"", loggedIn: true});
-
+  const [user, setUser] = useState({token:"", loggedIn: false});
+  const [sessionReady, setSessionReady] = useState(false);
   const token = getCookie('acanotes_alpaca_token');
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
       verifyToken(token).then(() => {
         let user = tokenGetClaims(token);
         setUser({token: token, loggedIn:true, ...user});
+        setSessionReady(true);
         message.success("Welcome back " + user.firstName);
       }).catch((err) => {
         message.error("An error occured with trying to log you back in automatically");
@@ -48,15 +50,17 @@ function App() {
   return (
     <Router>
       <div>
-        <Switch>
-          <UserProvider value={{user: user, setUser: setUser, logout: () => {setUser({token:"", loggedIn: false}); setCookie("acanotes_alpaca_token", ""); message.info("Logged out")}}}>
-            <Route path="/" exact component={() => {return (<MainPage />)}} />
-            <Route path="/login" exact component={LoginPage} />
-            <Route path="/register" exact component={RegisterPage} />
-            <Route path="/create" exact component={() => { return requireAuth(CreatePage) }} />
-            <Route path="/today" exact component={() => requireAuth(TodayPage)} />
-          </UserProvider>
-        </Switch>
+        {sessionReady &&
+          <Switch>
+            <UserProvider value={{user: user, setUser: setUser, logout: () => {setUser({token:"", loggedIn: false}); setCookie("acanotes_alpaca_token", ""); message.info("Logged out")}}}>
+              <Route path="/" exact component={() => {return (<MainPage />)}} />
+              <Route path="/login" exact component={LoginPage} />
+              <Route path="/register" exact component={RegisterPage} />
+              <Route path="/create" exact component={() => { return requireAuth(CreatePage) }} />
+              <Route path="/today" exact component={() => requireAuth(TodayPage)} />
+            </UserProvider>
+          </Switch>
+        }
       </div>
     </Router>
   );
