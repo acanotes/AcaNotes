@@ -15,7 +15,7 @@ const MainPage = () => {
             <p className="sub-title">The ultimate online note-sharing platform designed specifically for IB students. </p>
           </div>
         </div>
-        <div className="container" id="sec-1">
+        <div className="container">
           <h2>Students for students.</h2>
           <p> AcaNotes is a resource that provides IB students with course notes from credible sources. Dedicated to help you achieve optimal results, we value your success over anything else. Here at AcaNotes, every student is a priority. </p>
           <div className="mascot-wrapper">
@@ -25,6 +25,13 @@ const MainPage = () => {
         <div className="container">
           <h2>We are directed at IB</h2>
           <p>Unlike Gradesaver or Litcharts, we are directed at the IB curriculum, with our resources coming straight from IB students who have exceled under the IB curriculum. </p>
+        </div>
+        <div className="container">
+          <div className="signup-btn-wrapper">
+            <a href="/register">
+              <Button type="primary" className="signup-btn">SIGN UP NOW</Button>
+            </a>
+          </div>
         </div>
       </div>
     </MainLayout>

@@ -3,6 +3,7 @@
 .MainPage {
   .container {
     .container();
+    position: relative;
   }
   .hero-container{
     padding: 40px;
@@ -17,17 +18,27 @@
     }
     .sub-title {
       color: @white;
+      font-size: @font3;
       @media only screen and (max-width: @sm) {
         // font-size: @font1;
       }
     }
   }
-  #sec-1 {
-    .mascot-wrapper{
-      text-align: center;
-      .mascot {
-        max-width: 300px;
-      }
+  .signup-btn-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+  .mascot-wrapper{
+    text-align: center;
+    .mascot {
+      max-width: 300px;
     }
+  }
+  .signup-btn {
+    max-width: 320px;
+    width: 100%;
+    font-size: @font4;
+    height: 48px;
+
   }
 }
