@@ -1,13 +1,33 @@
 @import '../../styles/base.less';
 
 .MainPage {
-  .main-container {
+  .container {
+    .container();
+  }
+  .hero-container{
     padding: 40px;
     background-color: @theme-color-1;
     min-height: 80vh;
     height: 12 * 30px;
-    h1 {
+    .title {
       color: @white;
+      @media only screen and (max-width: @sm) {
+        // font-size: @font6;
+      }
+    }
+    .sub-title {
+      color: @white;
+      @media only screen and (max-width: @sm) {
+        // font-size: @font1;
+      }
+    }
+  }
+  #sec-1 {
+    .mascot-wrapper{
+      text-align: center;
+      .mascot {
+        max-width: 300px;
+      }
     }
   }
 }

@@ -3,6 +3,13 @@
 @import './base.less';
 html {
   font-size:14px;
+  @media only screen and (max-width: @lg) {
+    font-size: 14px;
+  }
+  @media only screen and (max-width: @sm) {
+    font-size: 12px;
+  }
+
 }
 body {
   font-family: 'Open Sans', Arial, sans-serif;
