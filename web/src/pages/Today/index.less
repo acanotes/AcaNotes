@@ -25,12 +25,13 @@
         .user-card {
           position: relative;
           display: inline-block;
-          width: 120px;
+          max-width: 240px;
           margin-top: @margin-base * 2;
           margin-bottom: @margin-base * 2;
           margin-right: @margin-base * 2;
           margin-left: @margin-base * 2;
           text-align: center;
+          font-size: @font2;
           .stand-in-avatar {
 
             border-radius: 50%;
@@ -40,6 +41,31 @@
           }
           .user-name {
             margin-top: @margin-base;
+          }
+        }
+      }
+    }
+    .notes-section {
+
+      .notes {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        .notes-card {
+          box-shadow: 0 2px 16px @box-shadow-1;
+          padding: @margin-base;
+          border-radius: 4px;
+          position: relative;
+          display: inline-block;
+          max-width: 264px;
+          margin-top: @margin-base * 2;
+          margin-bottom: @margin-base * 2;
+          margin-right: @margin-base;
+          margin-left: @margin-base;
+          .notes-title {
+            font-size: @font2;
+            font-weight: 600;
           }
         }
       }

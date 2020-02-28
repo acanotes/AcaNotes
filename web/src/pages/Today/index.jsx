@@ -6,6 +6,7 @@ import UserContext from 'UserContext';
 
 import { getAnnouncements } from 'actions/announcements';
 import { getTop } from 'actions/users';
+import { getTopNotes, getLatestNotes } from 'actions/notes';
 
 import './index.less';
 
@@ -21,6 +22,8 @@ const randomColors= (c) => {
 const TodayPage = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [topUsers, setTopUsers] = useState([]);
+  const [topNotes, setTopNotes] = useState([]);
+  const [latestNotes, setLatestNotes] = useState([]);
   const userHooks = React.useContext(UserContext);
   useEffect(() => {
     getAnnouncements(3).then((res) => {
@@ -32,6 +35,16 @@ const TodayPage = () => {
   useEffect(() => {
     getTop(5).then((res) => {
       setTopUsers(JSON.parse(res.data.res));
+    })
+  }, []);
+  useEffect(() => {
+    getTopNotes(5).then((res) => {
+      setTopNotes(JSON.parse(res.data.res));
+    })
+  }, []);
+  useEffect(() => {
+    getLatestNotes(5).then((res) => {
+      setLatestNotes(JSON.parse(res.data.res));
     })
   }, []);
   return (
@@ -69,8 +82,54 @@ const TodayPage = () => {
                       <div className="stand-in-avatar" style={{background:c}}></div>
                       <div className="user-name">Name: {row.user_first}</div>
                       <div className="user-title">Title: {row.user_title}</div>
-                      <div className="user-rating">Rating: {row.user_rating} <Rate value={row.user_rating}/></div>
+                      <div className="user-rating"><Rate disabled value={row.user_rating}/></div>
                       <div className="user-downloads">Downloads: {row.user_downloads}</div>
+                    </div>
+                  )
+                })}
+              </div>
+            }
+          </div>
+          <div className="card top-notes notes-section">
+          <h2 className="title">Popular Notes</h2>
+          {topNotes.length &&
+            <div className="notes">
+              {topNotes.map((row, i) => {
+                let i1 = randomColors();
+                let i2 = randomColors(i1);
+                let c = "linear-gradient(" + Math.random() + "turn, " + i1  + ", " + i2 + ")";
+                console.log(c);
+                return (
+                  <div key={i} className="notes-card">
+                    <div className="notes-title">Title: {row.a_title}</div>
+                    <div className="notes-rating"><Rate disabled value={row.a_rating}/></div>
+                    <div className="notes-author">Author: {row.a_author}</div>
+                    <div className="notes-date">Date: {row.a_date}</div>
+                    <div className="notes-desc">Description: {row.a_description}</div>
+                    <div className="notes-downloads">Downloads: {row.a_downloads}</div>
+                  </div>
+                )
+              })}
+            </div>
+          }
+          </div>
+          <div className="card top-notes notes-section">
+            <h2 className="title">New Notes</h2>
+            {latestNotes.length &&
+              <div className="notes">
+                {latestNotes.map((row, i) => {
+                  let i1 = randomColors();
+                  let i2 = randomColors(i1);
+                  let c = "linear-gradient(" + Math.random() + "turn, " + i1  + ", " + i2 + ")";
+                  console.log(c);
+                  return (
+                    <div key={i} className="notes-card">
+                      <div className="notes-title">Title: {row.a_title}</div>
+                      <div className="notes-rating"><Rate disabled value={row.a_rating}/></div>
+                      <div className="notes-author">Author: {row.a_author}</div>
+                      <div className="notes-date">Date: {row.a_date}</div>
+                      <div className="notes-desc">Description: {row.a_description}</div>
+                      <div className="nnotes-downloads">Downloads: {row.a_downloads}</div>
                     </div>
                   )
                 })}

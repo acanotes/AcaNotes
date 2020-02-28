@@ -19,6 +19,10 @@ export default {
     },
     users: {
       getTop: "/api/v1/users/getTop.php"
+    },
+    notes: {
+      getTopNotes: "/api/v1/notes/getTopNotes.php",
+      latest:"/api/v1/notes/latest.php"
     }
   }
 }
