@@ -1,7 +1,48 @@
 @import '../../styles/base.less';
 .TodayPage {
-  .main-container {
+  .container {
     // import a page container mixin
-    .container()
+    .container();
+    .card {
+      margin-bottom: @margin-base * 2;
+      margin-top: @margin-base * 2;
+      border-radius: 5px;
+      padding: 25px;
+      width: 600px;
+      box-shadow: 0 2px 16px @box-shadow-1;
+      background-color: @white;
+      width: 100%;
+    }
+    .top-users {
+      .title {
+
+      }
+      .users {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        .user-card {
+          position: relative;
+          display: inline-block;
+          width: 120px;
+          margin-top: @margin-base * 2;
+          margin-bottom: @margin-base * 2;
+          margin-right: @margin-base * 2;
+          margin-left: @margin-base * 2;
+          text-align: center;
+          .stand-in-avatar {
+
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin: auto;
+          }
+          .user-name {
+            margin-top: @margin-base;
+          }
+        }
+      }
+    }
   }
 }
