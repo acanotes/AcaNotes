@@ -12,17 +12,24 @@ class Auth {
       return false;
     }
 
-    return true;
+    return $verified;
   }
   public static function authenticateRoute() {
+
     if ($_SERVER['REQUEST_METHOD'] != 'OPTIONS') {
+
       $auth_token = getBearerToken();
-      if (empty($auth_token) || !self::verifyToken($auth_token)) {
+      $token_data = self::verifyToken($auth_token);
+      if (empty($auth_token) || ($token_data == false)) {
         $res = array('error' => '');
         http_response_code(420);
         $res['error'] = "Route requires authentication, user not authenticated";
         echo json_encode($res);
         exit();
+      }
+      else {
+        $decoded_array = (array) $token_data;
+        return $decoded_array;
       }
     }
   }
