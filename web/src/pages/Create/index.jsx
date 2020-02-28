@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import MainLayout from 'layouts/MainLayout';
-
+import CreateNote from 'components/CreateNote';
 import './index.less';
 
 const CreatePage = () => {
@@ -9,7 +9,7 @@ const CreatePage = () => {
     <MainLayout>
       <div className="CreatePage">
         <div className="main-container">
-          <h1>Acanotes</h1>
+          <CreateNote />
         </div>
       </div>
     </MainLayout>

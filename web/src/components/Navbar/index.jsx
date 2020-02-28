@@ -29,6 +29,9 @@ const Navbar = () => {
       case '/login':
         setMenu("login");
         break;
+      case '/today':
+        setMenu("today");
+        break;
       default:
         setMenu("home");
     }

@@ -12,7 +12,7 @@ export default {
       verify:"/api/v1/auth/verify.php"
     },
     create: {
-      note: "/api/v1/createNote.php"
+      note: "/api/v1/content/createNote.php"
     }
   }
 }

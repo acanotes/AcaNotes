@@ -17,7 +17,7 @@ import { verifyToken } from './actions/auth'
 import { UserProvider } from './UserContext';
 
 function App() {
-  const [user, setUser] = useState({token:"", loggedIn: false});
+  const [user, setUser] = useState({token:"", loggedIn: true});
 
   const token = getCookie('acanotes_alpaca_token');
 
@@ -35,9 +35,10 @@ function App() {
     }
     // otherwise, do nothing
   },[]);
-  const requireAuth = (component) => {
+  const requireAuth = (Component) => {
     if (user.loggedIn) {
-      return component;
+
+      return <Component />;
     }
     else {
       message.info("You need to login to access that page")
@@ -52,7 +53,7 @@ function App() {
             <Route path="/" exact component={() => {return (<MainPage />)}} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/register" exact component={RegisterPage} />
-            <Route path="/create" exact component={() => requireAuth(CreatePage)} />
+            <Route path="/create" exact component={() => { return requireAuth(CreatePage) }} />
             <Route path="/today" exact component={() => requireAuth(TodayPage)} />
           </UserProvider>
         </Switch>

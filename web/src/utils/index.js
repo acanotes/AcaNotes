@@ -42,3 +42,7 @@ export const tokenGetClaims = token => {
   }
   return JSON.parse(window.atob(tokenArray[1].replace('-', '+').replace('_', '/')));
 };
+
+export function getToken() {
+  return getCookie('acanotes_alpaca_token');
+}
