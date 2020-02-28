@@ -1,10 +1,31 @@
-@import '../../styles/vars.less';
+@import '../../styles/base.less';
 
 .Navbar {
   .login-item {
     float: right;
-    .login-icon {
+    > .login-icon {
       transform: rotate(-90deg);
+      transition: all 0.2s;
+    }
+
+  }
+  .login-item:hover > .login-icon {
+    transform: rotate(0deg);
+  }
+  .register-item:hover > .register-icon {
+    transform: rotate(0deg);
+  }
+  .register-item {
+    float: right;
+    > .register-icon {
+      transition: all 0.2s;
+      transform: rotate(-90deg);
+    }
+  }
+  .logout-item {
+    float: right;
+    > .logout-icon {
+      transform: rotate(90deg);
     }
   }
 }

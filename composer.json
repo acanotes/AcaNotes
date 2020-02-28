@@ -1,11 +1,16 @@
 {
-  "name": "stone.tao/aca-notes",
-  "description": "Acanotes Platform",
-  "type": "project",
-  "require": {
-    
-  },
-  "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
-  }
+	"name": "stone.tao/aca-notes",
+	"description": "Acanotes Platform",
+	"type": "project",
+	"require": {
+
+	},
+	"scripts": {
+		"compile": [
+			"cd web && php composer.phar install --no-dev"
+		]
+	},
+	"require-dev": {
+		"heroku/heroku-buildpack-php": "*"
+	}
 }

@@ -1,0 +1,23 @@
+.container {
+
+  @media screen and (max-width: @sm) {
+    width: 98%;
+    margin-left: 1%;
+  }
+  @media screen and (min-width: @md) {
+    width: 80%;
+    margin-left: 10%;
+  }
+  @media screen and (min-width: @lg) {
+    width: 75%;
+    margin-left: 12.5%;
+  }
+  @media screen and (min-width: 2140px) {
+    max-width: 1361px;
+  }
+}
+.vertical-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

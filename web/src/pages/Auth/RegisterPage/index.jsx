@@ -1,19 +1,19 @@
 import React from 'react';
-import { Button } from 'antd';
+import Register from 'components/Auth/Register';
 import MainLayout from 'layouts/MainLayout';
 
 import './index.less';
 
-const MainPage = () => {
+const RegisterPage = () => {
   return (
     <MainLayout>
-      <div className="MainPage">
+      <div className="RegisterPage">
         <div className="main-container">
-          <h1>Acanotes</h1>
+          <Register />
         </div>
       </div>
     </MainLayout>
   )
 }
 
-export default MainPage
+export default RegisterPage

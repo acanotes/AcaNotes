@@ -4,3 +4,4 @@ public_html/php.ini
 public_html/userpanel.php
 
 /vendor/
+*.env

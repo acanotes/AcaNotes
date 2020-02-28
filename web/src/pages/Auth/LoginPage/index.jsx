@@ -1,19 +1,18 @@
 import React from 'react';
-import { Button } from 'antd';
+import Login from 'components/Auth/Login';
 import MainLayout from 'layouts/MainLayout';
-
 import './index.less';
 
-const MainPage = () => {
+const LoginPage = () => {
   return (
     <MainLayout>
-      <div className="MainPage">
+      <div className="LoginPage">
         <div className="main-container">
-          <h1>Acanotes</h1>
+          <Login />
         </div>
       </div>
     </MainLayout>
   )
 }
 
-export default MainPage
+export default LoginPage
