@@ -32,8 +32,12 @@ function App() {
         setSessionReady(true);
         message.success("Welcome back " + user.firstName);
       }).catch((err) => {
-        message.error("An error occured with trying to log you back in automatically");
+        // message.error("An error occured with trying to log you back in automatically");
+        setSessionReady(true);
       });
+    }
+    else {
+      setSessionReady(true);
     }
     // otherwise, do nothing
   },[]);
@@ -56,7 +60,7 @@ function App() {
               <Route path="/" exact component={() => {return (<MainPage />)}} />
               <Route path="/login" exact component={LoginPage} />
               <Route path="/register" exact component={RegisterPage} />
-              <Route path="/create" exact component={() => { return requireAuth(CreatePage) }} />
+              <Route path="/create" exact component={() => requireAuth(CreatePage)} />
               <Route path="/today" exact component={() => requireAuth(TodayPage)} />
             </UserProvider>
           </Switch>
