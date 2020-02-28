@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
 
 import './index.less';
 
@@ -8,6 +9,7 @@ const MainLayout = (props) => {
     <div className="MainLayout">
       <Navbar />
       {props.children}
+      <Footer />
     </div>
   )
 }
