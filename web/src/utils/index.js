@@ -1,7 +1,12 @@
 import { message } from 'antd';
 export const errorLogger = (error) => {
   console.error(error);
-  message.error(error.response.data.error);
+  if (error.response && error.response.data && error.response.data.error) {
+    message.error(error.response.data.error);
+  }
+  else if (error.message) {
+    message.error(error.message);
+  }
 }
 
 export function getCookie(cname) {

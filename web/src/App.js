@@ -9,6 +9,9 @@ import MainPage from './pages/MainPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
 
+import CreatePage from './pages/Create';
+import TodayPage from './pages/Today';
+
 import { getCookie, setCookie, tokenGetClaims } from './utils'
 import { verifyToken } from './actions/auth'
 import { UserProvider } from './UserContext';
@@ -49,7 +52,8 @@ function App() {
             <Route path="/" exact component={() => {return (<MainPage />)}} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/register" exact component={RegisterPage} />
-            <Route path="/create" exact component={() => requireAuth(RegisterPage)} />
+            <Route path="/create" exact component={() => requireAuth(CreatePage)} />
+            <Route path="/today" exact component={() => requireAuth(TodayPage)} />
           </UserProvider>
         </Switch>
       </div>
