@@ -47,15 +47,16 @@ if (isset($data['username']))
 
       //Insert user into database
       $insertsql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd, verified, vkey, user_title, user_rating) VALUES ('$first', '$last', '$email', '$uid', '$hashedPwd', 1, '$vkey' , 'Freshie', NULL);";
-      if(mysqli_query($conn, $insertsql))
+      if($conn -> query($insertsql))
       {
         $res['res'] = "Registered successfully";
         echo json_encode($res);
         exit();
       }
       else {
+
         http_response_code(420);
-        $res['error'] = "Registration failed";
+        $res['error'] = "Registration failed - Reason: " . $conn -> error;
         echo json_encode($res);
         exit();
       }
