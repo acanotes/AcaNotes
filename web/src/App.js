@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import MainPage from './pages/MainPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
+import ContributorsPage from './pages/Contributors';
 
 import CreatePage from './pages/Create';
 import TodayPage from './pages/Today';
@@ -60,6 +61,7 @@ function App() {
               <Route path="/" exact component={() => {return (<MainPage />)}} />
               <Route path="/login" exact component={LoginPage} />
               <Route path="/register" exact component={RegisterPage} />
+              <Route path="/contributors" exact component={ContributorsPage} />
               <Route path="/create" exact component={() => requireAuth(CreatePage)} />
               <Route path="/today" exact component={() => requireAuth(TodayPage)} />
             </UserProvider>
