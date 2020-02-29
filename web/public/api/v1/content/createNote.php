@@ -8,6 +8,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
 include '../../inc/connect.php';
 include '../auth/auth.php';
 
+/* Authentication "middleware" that makes this route protected from random access
+ * and also returns the token data of the user requesting this route
+ */
 $token_data = Auth::authenticateRoute();
 
 if (isset($data['title'])) {
