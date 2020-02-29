@@ -34,7 +34,7 @@ if (isset($data['title'])) {
   } else {
     http_response_code(400);
     $res['error'] = "Couldn't update database";
-    $res['sql_error'] = "ERROR: Could not able to execute $sql2. " . mysqli_error($conn);
+    $res['sql_error'] = "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     echo json_encode($res);
     exit();
   }
@@ -49,12 +49,22 @@ if (isset($data['title'])) {
     $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET_NAME" config var in found in env!');
 
     $extension="pdf";
-    $key = 'notes/' . $user . '/' . $note_id.'_'.$user.'_'.$subject.'_'.$title.'.'.$extension;
+    $key = 'notes/' . $user . '/' . $note_id.'_'.$subject.'_'.$title.'.'.$extension;
     $cmd = $s3Client->getCommand('PutObject', [
         'Bucket' => $bucket,
         'Key' => $key,
         'ACL' => 'public-read'
     ]);
+
+    // TODO: Need to do transaction in future, where both sql queries are reverted if something goes wrong
+    $sql2 = "UPDATE notes SET a_directory = '$key' WHERE a_id = $note_id";
+    if(!mysqli_query($conn, $sql2)) {
+      http_response_code(400);
+      $res['error'] = "Couldn't update database";
+      $res['sql_error'] = "ERROR: Could not able to execute $sql2. " . mysqli_error($conn);
+      echo json_encode($res);
+      exit();
+    }
 
     $signedRequest = $s3Client->createPresignedRequest($cmd, '+20 minutes');
     $presignedUrl = (string)$signedRequest->getUri();
