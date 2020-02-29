@@ -29,16 +29,19 @@ const CreateNote = () => {
     let fileList = [...info.fileList];
     let lastFile = fileList[fileList.length - 1];
     setFileList([lastFile]);
-    console.log(lastFile);
+    let fr = new FileReader();
+
+    fr.onload = () => {
+      console.log(fr.result);
+    }
+    fr.readAsBinaryString(lastFile.originFileObj);
     setValue("file", {file: lastFile});
   }
   const onSubmit = (data) => {
 
-    console.log(data);
     uploadNote({...data, token: userHooks.token}).then(() => {
 
     }).catch((error) => {
-
     });
   };
 
