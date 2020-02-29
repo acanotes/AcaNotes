@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import UserContext from 'UserContext';
 import { useHistory } from "react-router-dom";
+import { UploadOutlined } from '@ant-design/icons';
 import { errorLogger, setCookie, tokenGetClaims } from 'utils';
 import config from 'configuration';
 import axios from 'axios';
@@ -14,7 +15,7 @@ const { Option, OptGroup } = Select;
 
 const CreateNote = () => {
   const { register, handleSubmit, setValue, errors } = useForm();
-  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(false);
   const userHooks = React.useContext(UserContext);
   const history = useHistory();
 
@@ -28,17 +29,19 @@ const CreateNote = () => {
   const onFileChange = (info) => {
     let fileList = [...info.fileList];
     let lastFile = fileList[fileList.length - 1];
-    setFileList([lastFile]);
-    console.log(lastFile);
+    if (lastFile) {
+      setFileList([lastFile]);
+    }
+    let fr = new FileReader();
+
     setValue("file", {file: lastFile});
   }
   const onSubmit = (data) => {
-
-    console.log(data);
+    setProgress(true);
     uploadNote({...data, token: userHooks.token}).then(() => {
-
+      setProgress(false);
     }).catch((error) => {
-
+      setProgress(false);
     });
   };
 
@@ -136,14 +139,20 @@ const CreateNote = () => {
           </Input.TextArea>
         </Form.Item>
         <Form.Item validateStatus={errors.file && "error"}>
-          <Upload name="file" type="file" customRequest={dummyRequest} fileList={fileList} onChange={onFileChange}>
+          <Upload name="file" type="file" customRequest={dummyRequest} fileList={fileList} onChange={onFileChange}
+            onRemove={
+              () => {
+                setFileList([]);
+              }
+            }
+          >
             <Button>
-              Click to Upload
+              <UploadOutlined /> Click to Upload
             </Button>
           </Upload>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="createnote-button">
+          <Button type="primary" htmlType="submit" className="createnote-button" loading={progress}>
             Create
           </Button>
         </Form.Item>

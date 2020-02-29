@@ -9,6 +9,9 @@ import MainPage from './pages/MainPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
 import ContributorsPage from './pages/Contributors';
+import NotesWikiPage from './pages/NotesWiki';
+
+import NotePage from './pages/NotePage';
 
 import CreatePage from './pages/Create';
 import TodayPage from './pages/Today';
@@ -42,10 +45,10 @@ function App() {
     }
     // otherwise, do nothing
   },[]);
-  const requireAuth = (Component) => {
+  const requireAuth = (Component, props) => {
     if (user.loggedIn) {
 
-      return <Component />;
+      return <Component {...props} />;
     }
     else {
       message.info("You need to login to access that page")
@@ -64,6 +67,8 @@ function App() {
               <Route path="/contributors" exact component={ContributorsPage} />
               <Route path="/create" exact component={() => requireAuth(CreatePage)} />
               <Route path="/today" exact component={() => requireAuth(TodayPage)} />
+              <Route path="/notes-wiki" exact component={() => requireAuth(NotesWikiPage)} />
+              <Route path="/notes-wiki/note/:id" exact component={(props) => requireAuth(NotePage, props)} />
             </UserProvider>
           </Switch>
         }

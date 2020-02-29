@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/acanotes/AcaNotes/issues"
   },
-  "homepage": "https://github.com/acanotes/AcaNotes#readme"
+  "homepage": "https://github.com/acanotes/AcaNotes#readme",
+  "dependencies": {}
 }

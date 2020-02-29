@@ -62,7 +62,7 @@ CREATE TABLE `notes` (
   `a_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `a_rating` float DEFAULT NULL,
   `a_downloads` int(11) NOT NULL,
-  `a_directory` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `a_directory` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`a_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -73,7 +73,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-INSERT INTO `notes` VALUES (107,'中文Paper 2《活着》与《追风筝的人》分析','Chinese Lang Lit','admin','2020-02-16','这是一篇有关《活着》与《追风筝的人》的Paper 2 分析',4,7,'107_admin_Chinese Lang Lit_中文Paper 2《活着》与《追风筝的人》分析'),(108,'Language as an Area of Knowledge','TOK','ealu','2020-02-21','Summarizes the whole chapter on Language as an area of knowledge. It\'s also nice and bulleted :).',4,1,'108_ealu_TOK_Language as an Area of Knowledge'),(109,'Psych P1 P2 review notes','Psychology','admin','2020-02-22','Psychology review notes for P1 and P2. Note that these are by no means comprehensive and should serve as a supplement.',NULL,0,'109_admin_Psychology_Psych P1 P2 review notes'),(110,'Developmental Economics Paper 2 Review','Economics','admin','2020-02-22','Some notes on developmental economics paper 2.',NULL,0,'110_admin_Economics_Developmental Economics Paper '),(111,'Oedipus Rex Paper 2 Review','English Lang Lit','admin','2020-02-22','Oedipus Rex Paper 2 Review',NULL,0,'111_admin_English Lang Lit_Oedipus Rex Paper 2 Rev');
+
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
