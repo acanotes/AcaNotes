@@ -22,7 +22,8 @@ export default {
     },
     notes: {
       getTopNotes: "/api/v1/notes/getTopNotes.php",
-      latest:"/api/v1/notes/latest.php"
+      latest:"/api/v1/notes/latest.php",
+      getNote: "/api/v1/notes/getNote.php"
     }
   }
 }

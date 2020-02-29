@@ -9,6 +9,7 @@ import MainPage from './pages/MainPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
 import ContributorsPage from './pages/Contributors';
+import NotesWikiPage from './pages/NotesWiki';
 
 import CreatePage from './pages/Create';
 import TodayPage from './pages/Today';
@@ -64,6 +65,7 @@ function App() {
               <Route path="/contributors" exact component={ContributorsPage} />
               <Route path="/create" exact component={() => requireAuth(CreatePage)} />
               <Route path="/today" exact component={() => requireAuth(TodayPage)} />
+              <Route path="/notes-wiki" exact component={() => requireAuth(NotesWikiPage)} />
             </UserProvider>
           </Switch>
         }

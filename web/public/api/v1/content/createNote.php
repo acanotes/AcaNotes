@@ -69,7 +69,7 @@ if (isset($data['title'])) {
     $signedRequest = $s3Client->createPresignedRequest($cmd, '+20 minutes');
     $presignedUrl = (string)$signedRequest->getUri();
 
-    $res['signedUrl'] = $presignedUrl; // get request to this URL allows you to view the object
+    $res['signedUrl'] = $presignedUrl; // put request to this URL allows you to view the object
     $res['key'] = $key;
     echo json_encode($res);
   }

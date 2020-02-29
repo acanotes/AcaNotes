@@ -62,3 +62,19 @@ export async function getLatestNotes(count = 5) {
     });
   });
 }
+
+export async function getNote(id) {
+  return new Promise((resolve, reject) => {
+    if (id === undefined) {
+      reject(new Error("No ID given"));
+    }
+    axios({method: "GET", url:config.API_URL + config.routes.notes.getNote + "?id=" + id, headers: {
+      Authorization: `Bearer ${getToken()}`
+    }}).then((response) => {
+      resolve(response);
+    }).catch((error) => {
+      message.error("Failed to retrieve popular notes");
+      reject(error);
+    });
+  });
+}

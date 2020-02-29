@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from 'UserContext';
 
 import { Menu, Icon } from 'antd';
+import { MessageOutlined } from '@ant-design/icons';
 import './index.less';
 const { SubMenu } = Menu;
 
@@ -32,6 +33,9 @@ const Navbar = () => {
       case '/today':
         setMenu("today");
         break;
+      case '/notes-wiki':
+          setMenu("notes-wiki");
+          break;
       default:
         setMenu("home");
     }
@@ -50,6 +54,10 @@ const Navbar = () => {
       <Menu.Item key="create" onClick={() => history.push('/create')}>
         <Icon type="file-add" />
         Create Note
+      </Menu.Item>
+      <Menu.Item key="notes-wiki" onClick={() => history.push('/notes-wiki')}>
+        <MessageOutlined />
+        Notes Wiki
       </Menu.Item>
       {userHooks.user.loggedIn ?
         <Menu.Item key="logout" className="logout-item" onClick={() => {

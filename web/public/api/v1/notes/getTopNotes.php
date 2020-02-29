@@ -9,9 +9,9 @@ include '../../inc/connect.php';
 include '../auth/auth.php';
 
 $token_data = Auth::authenticateRoute();
-
+$res = array('error' => '');
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['count'])) {
-  $res = array('error' => '');
+
   $count = 5;
   $count = mysqli_real_escape_string($conn, $_GET['count']);
   $sql = "SELECT * FROM notes ORDER BY a_downloads*a_rating DESC LIMIT " . $count;
@@ -30,4 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['count'])) {
     echo json_encode($res);
     exit();
   }
+}
+else {
+  http_response_code(400);
+  $res['error'] = "Incorrect use";
+  echo json_encode($res);
+  exit();
 }
