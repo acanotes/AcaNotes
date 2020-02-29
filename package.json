@@ -17,5 +17,9 @@
     "url": "https://github.com/acanotes/AcaNotes/issues"
   },
   "homepage": "https://github.com/acanotes/AcaNotes#readme",
-  "dependencies": {}
+  "dependencies": {
+    "antd": "^4.0.0",
+    "design": "^0.1.0",
+    "react-composer": "^5.0.1"
+  }
 }

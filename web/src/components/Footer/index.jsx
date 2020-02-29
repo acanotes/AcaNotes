@@ -17,8 +17,10 @@ const Footer = () => {
         <a href='https://www.instagram.com/acanotes/' target="_blank" >
           <InstagramOutlined className="Icons"/>
         </a>
+      </div> 
+      <div className="copyright">
+        Copyright © {(new Date).getFullYear()} AcaNotes.com 
       </div>
-      Copyright © {(new Date).getFullYear()} AcaNotes.com 
     </div>
   )
 }

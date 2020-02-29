@@ -5,3 +5,4 @@ public_html/userpanel.php
 
 /vendor/
 *.env
+node_modules
