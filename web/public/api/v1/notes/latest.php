@@ -10,6 +10,11 @@ include '../auth/auth.php';
 
 $token_data = Auth::authenticateRoute();
 $res = array('error' => '');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  http_response_code(200);
+  exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['count'])) {
 
   $count = 5;

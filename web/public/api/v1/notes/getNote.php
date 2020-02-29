@@ -8,8 +8,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
 include '../../inc/connect.php';
 include '../auth/auth.php';
 
-// $token_data = Auth::authenticateRoute();
+$token_data = Auth::authenticateRoute();
 $res = array('error' => '');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  http_response_code(200);
+  exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
   $count = 5;
@@ -46,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
       $res['signedUrl'] = $presignedUrl; // get request to this URL allows you to view the object
       $res['key'] = $key;
+      $res['note'] = json_encode($row_res);
       echo json_encode($res);
     }
     catch (Exception $error) {

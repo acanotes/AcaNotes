@@ -12,6 +12,10 @@ include '../auth/auth.php';
  * and also returns the token data of the user requesting this route
  */
 $token_data = Auth::authenticateRoute();
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  http_response_code(200);
+  exit();
+}
 
 if (isset($data['title'])) {
   $res = array('error' => '');

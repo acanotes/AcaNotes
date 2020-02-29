@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from 'UserContext';
 
 import { Menu, Icon } from 'antd';
-import { MessageOutlined } from '@ant-design/icons';
+import { BookOutlined } from '@ant-design/icons';
 import './index.less';
 const { SubMenu } = Menu;
 
@@ -56,7 +56,7 @@ const Navbar = () => {
         Create Note
       </Menu.Item>
       <Menu.Item key="notes-wiki" onClick={() => history.push('/notes-wiki')}>
-        <MessageOutlined />
+        <BookOutlined />
         Notes Wiki
       </Menu.Item>
       {userHooks.user.loggedIn ?

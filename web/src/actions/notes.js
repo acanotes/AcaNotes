@@ -14,20 +14,22 @@ export async function uploadNote(data) {
       let signedUrl = rdata.signedUrl;
       let key = rdata.key;
       let reader = new FileReader();
-      axios({
-        method: "PUT",
-        url: signedUrl,
-        data: data.file.file.originFileObj,
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }).then((response) => {
-        console.log(response);
-        message.success("Succesfully uploaded note!");
-        resolve(response);
-      }).catch((error) => {
-        console.error(error);
-        message.error("Failed to upload note, try again later");
-        reject(error);
-      });
+      // reader.onload = () => {
+        axios({
+          method: "PUT",
+          url: signedUrl,
+          data: data.file.file.originFileObj,
+          headers: { 'Content-Type': 'application/pdf' }
+        }).then((response) => {
+          console.log(response);
+          message.success("Succesfully uploaded note!");
+          resolve(response);
+        }).catch((error) => {
+          console.error(error);
+          message.error("Failed to upload note, try again later");
+          reject(error);
+        });
+      // }
 
     }).catch((error) => {
       message.error("Failed to upload note, try again later");
@@ -57,7 +59,7 @@ export async function getLatestNotes(count = 5) {
     }}).then((response) => {
       resolve(response);
     }).catch((error) => {
-      message.error("Failed to retrieve popular notes");
+      message.error("Failed to retrieve latest notes");
       reject(error);
     });
   });
@@ -70,10 +72,10 @@ export async function getNote(id) {
     }
     axios({method: "GET", url:config.API_URL + config.routes.notes.getNote + "?id=" + id, headers: {
       Authorization: `Bearer ${getToken()}`
-    }}).then((response) => {
-      resolve(response);
+    }}).then((res) => {
+      resolve(res);
     }).catch((error) => {
-      message.error("Failed to retrieve popular notes");
+      message.error("Failed to retrieve note");
       reject(error);
     });
   });
