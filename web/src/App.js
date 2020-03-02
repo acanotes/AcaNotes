@@ -16,6 +16,8 @@ import NotePage from './pages/NotePage';
 import CreatePage from './pages/Create';
 import TodayPage from './pages/Today';
 
+import ProfilePage from './pages/ProfilePage';
+
 import { getCookie, setCookie, tokenGetClaims } from './utils'
 import { verifyToken } from './actions/auth'
 import { UserProvider } from './UserContext';
