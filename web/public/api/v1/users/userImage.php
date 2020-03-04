@@ -11,7 +11,44 @@ include '../../inc/s3.php'; // expose s3Client to globals
 
 $token_data = Auth::authenticateRoute();
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+$res = array('error' => '');
+if (!isset($_GET['id'])) {
+  http_response_code(400);
+  $res['error'] = "No ID given";
+  echo json_encode($res);
+  exit();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+  $id = mysqli_real_escape_string($conn, $_GET['id']);
+  if (empty($id)) {
+    http_response_code(400);
+    $res['error'] = "No ID or faulty ID given";
+    echo json_encode($res);
+  }
+
+  // Get S3 client to prepare a signed url
+  try {
+    $key = 'users/' . $id . '/resources/profilePicture.png';
+    $cmd = $s3Client->getCommand('GetObject', [
+        'Bucket' => $s3Bucket,
+        'Key' => $key
+    ]);
+
+    $signedRequest = $s3Client->createPresignedRequest($cmd, '+20 minutes');
+    $presignedUrl = (string)$signedRequest->getUri();
+
+    $res['signedUrl'] = $presignedUrl; // get request to this URL allows you to view the object
+    $res['key'] = $key;
+    echo json_encode($res);
+  }
+  catch (Exception $error) {
+    http_response_code(420);
+    $res["error"] = "Something went wrong";
+    echo json_encode($res);
+  }
+}
+else if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
   $res = array('error' => '');
   $id = mysqli_real_escape_string($conn, $_GET['id']);
   if (empty($id)) {
