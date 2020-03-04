@@ -1,7 +1,16 @@
 @import '../../styles/base.less';
-.TemplatePage {
+.ProfilePage {
   .main-container {
     // import a page container mixin
     .container()
+  }
+  .title, .rating, .downloads, .desc {
+    font-size: @font3;
+    margin-bottom: @margin-base * 1;
+  }
+  .popular-uploads {
+    > .title {
+      font-size: @font3;
+    }
   }
 }

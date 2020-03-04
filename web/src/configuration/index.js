@@ -18,7 +18,9 @@ export default {
       latest: "/api/v1/announcements/latest.php"
     },
     users: {
-      getTop: "/api/v1/users/getTop.php"
+      getTop: "/api/v1/users/getTop.php",
+      getUser: "/api/v1/users/getUser.php",
+      getPopularUploads: "/api/v1/users/getPopularUploads.php"
     },
     notes: {
       getTopNotes: "/api/v1/notes/getTopNotes.php",

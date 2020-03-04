@@ -16,3 +16,30 @@ export async function getTop(count = 5) {
     });
   });
 }
+
+// Returns only public user data for given username or id
+export async function getUser(user) {
+  return new Promise((resolve, reject) => {
+    axios({method: "GET", url:config.API_URL + config.routes.users.getUser + "?id=" + user, headers: {
+      Authorization: `Bearer ${getToken()}`
+    }}).then((response) => {
+      resolve(JSON.parse(response.data.res));
+    }).catch((error) => {
+      message.error("Failed to retrieve user data");
+      reject(error);
+    });
+  });
+}
+
+export async function getPopularUploads(user) {
+  return new Promise((resolve, reject) => {
+    axios({method: "GET", url:config.API_URL + config.routes.users.getPopularUploads + "?id=" + user, headers: {
+      Authorization: `Bearer ${getToken()}`
+    }}).then((response) => {
+      resolve(JSON.parse(response.data.res));
+    }).catch((error) => {
+      message.error("Failed to retrieve popular uploads");
+      reject(error);
+    });
+  });
+}

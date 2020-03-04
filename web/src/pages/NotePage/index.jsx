@@ -6,6 +6,7 @@ import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
 import { getNote } from 'actions/notes';
 
+import { errorLogger } from 'utils';
 
 import './index.less';
 
@@ -19,8 +20,8 @@ const NotePage = (props) => {
     getNote(props.match.params.id).then((res) => {
       setFileURI(res.data.signedUrl);
       setNote(JSON.parse(res.data.note));
-    }).catch((res) => {
-
+    }).catch((error) => {
+      errorLogger(error);
     });
   }, []);
   return (
