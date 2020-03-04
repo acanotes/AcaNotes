@@ -18,17 +18,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $res['error'] = "No ID or faulty ID given";
     echo json_encode($res);
   }
-  $sql = "SELECT * FROM users WHERE user_uid = '$id' OR user_email = '$id'";
+  $sql = "SELECT * FROM notes WHERE a_author = '$id' ORDER BY a_downloads*a_rating DESC";
 
   if ($result = mysqli_query($conn, $sql)) {
-    $row = mysqli_fetch_assoc($result);
-    $res['res'] = json_encode($row);
+    while($r = mysqli_fetch_assoc($result)) {
+        $rows[] = $r;
+    }
+    $res['res'] = json_encode($rows);
     echo json_encode($res);
     exit();
   }
   else {
     http_response_code(420);
-    $res['error'] = "No User Found";
+    $res['error'] = "No uploads found";
     echo json_encode($res);
     exit();
   }

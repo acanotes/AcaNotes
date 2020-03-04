@@ -38,7 +38,7 @@ export async function getPopularUploads(user) {
     }}).then((response) => {
       resolve(JSON.parse(response.data.res));
     }).catch((error) => {
-      message.error("Failed to retrieve user data");
+      message.error("Failed to retrieve popular uploads");
       reject(error);
     });
   });

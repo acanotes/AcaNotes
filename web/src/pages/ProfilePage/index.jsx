@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import MainLayout from 'layouts/MainLayout';
+import NotesList from 'components/Notes/NotesList';
 import { useParams } from 'react-router-dom';
 import { getUser, getPopularUploads } from 'actions/users';
 
@@ -32,11 +33,14 @@ const ProfilePage = () => {
       <div className="ProfilePage">
         <div className="main-container">
           <h2>{profile.user_first} {profile.user_last}</h2>
-          <div class="title">Honorary Title: {profile.user_title}</div>
-          <div class="rating">Rating: {profile.user_rating || 0}/5</div>
-          <div class="downloads">User Downloads: {profile.user_downloads}</div>
-          <div class="desc">Description: {profile.user_description}</div>
-          <div class="popular-uploads">User Downloads: {profile.user_downloads}</div>
+          <div className="title">Honorary Title: {profile.user_title}</div>
+          <div className="rating">Rating: {profile.user_rating || 0}/5</div>
+          <div className="downloads">User Downloads: {profile.user_downloads}</div>
+          <div className="desc">Description: {profile.user_description}</div>
+          <div className="popular-uploads">
+            <div className="title">Popular Uploads</div>
+            <NotesList notes={popularUploads}/>
+          </div>
         </div>
       </div>
     </MainLayout>
