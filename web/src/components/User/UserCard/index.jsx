@@ -15,7 +15,6 @@ const UserCard = (props) => {
   let i1 = randomColors();
   let i2 = randomColors(i1);
   let c = "linear-gradient(" + Math.random() + "turn, " + i1  + ", " + i2 + ")";
-  console.log(c);
   return (
     <div className="UserCard">
       <div className="stand-in-avatar" style={{background:c}}></div>

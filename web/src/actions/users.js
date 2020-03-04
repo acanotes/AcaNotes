@@ -30,6 +30,18 @@ export async function getUser(user) {
     });
   });
 }
+export async function getUserImage(user) {
+  return new Promise((resolve, reject) => {
+    axios({method: "GET", url:config.API_URL + config.routes.users.getUserImage + "?id=" + user, headers: {
+      Authorization: `Bearer ${getToken()}`
+    }}).then((response) => {
+      resolve(response.data.res);
+    }).catch((error) => {
+      message.error("Failed to retrieve user profile picture");
+      reject(error);
+    });
+  });
+}
 
 export async function getPopularUploads(user) {
   return new Promise((resolve, reject) => {

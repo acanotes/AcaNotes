@@ -9,7 +9,7 @@ const UserList = (props) => {
     <div className="UserList">
       {props.users && props.users.length && props.users.map((row, i) => {
         return (
-          <UserCard key={i} props={row}/>
+          <UserCard key={i} {...row}/>
         )
       })
       }
