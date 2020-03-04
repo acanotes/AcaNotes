@@ -19,7 +19,8 @@ export default {
     },
     users: {
       getTop: "/api/v1/users/getTop.php",
-      getUser: "/api/v1/users/getUser.php"
+      getUser: "/api/v1/users/getUser.php",
+      getPopularUploads: "/api/v1/users/getPopularUploads.php"
     },
     notes: {
       getTopNotes: "/api/v1/notes/getTopNotes.php",
