@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Rate, Skeleton } from 'antd';
-import Avatar from '../Avatar';
 import './index.less';
 
 const randomColors= (c) => {
@@ -12,19 +10,20 @@ const randomColors= (c) => {
   return colors[randIndex];
 }
 
-const UserCard = (props) => {
+const Avatar = (props) => {
   let i1 = randomColors();
   let i2 = randomColors(i1);
   let c = "linear-gradient(" + Math.random() + "turn, " + i1  + ", " + i2 + ")";
+  useEffect(() => {
+    if (props.background) {
+      setBg(props.background);
+    }
+  }, [props.background]);
+  const [bg, setBg] = useState(c);
   return (
-    <div className="UserCard">
-      <Avatar background={props.user_image}/>
-      <div className="user-name">Name: {props.user_first}</div>
-      <div className="user-title">Title: {props.user_title}</div>
-      <div className="user-rating"><Rate disabled value={props.user_rating}/></div>
-      <div className="user-downloads">Downloads: {props.user_downloads}</div>
+    <div className="Avatar" style={{background:bg}}>
     </div>
   )
 }
 
-export default UserCard
+export default Avatar
