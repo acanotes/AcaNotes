@@ -22,6 +22,7 @@ const ProfilePage = () => {
   useEffect(() => {
 
     getUser(params.id).then((res) => {
+      console.log(res);
       setProfile(res);
     }).catch((error) => {
       errorLogger(error);

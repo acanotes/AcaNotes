@@ -56,15 +56,17 @@ export async function getPopularUploads(user) {
   });
 }
 
+// updates user with new contents in user variable and returns new token if updated succesfully
 export async function updateUser(user) {
   return new Promise((resolve, reject) => {
-    axios({method: "PATCH", url:config.API_URL + config.routes.users.user + "?id=" + user,
+    axios({method: "PATCH", url:config.API_URL + config.routes.users.user + "?id=" + user.username,
       headers: {
         Authorization: `Bearer ${getToken()}`
       },
-      body: user
+      data: user
     }).then((response) => {
-      resolve(response);
+      console.log(response);
+      resolve(response.data.token);
     }).catch((error) => {
       message.error("Failed to update user");
       reject(error);

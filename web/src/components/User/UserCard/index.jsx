@@ -22,7 +22,7 @@ const UserCard = (props) => {
       <Avatar background={props.user_image}/>
       <div className="user-name">Name: {props.user_first}</div>
       <div className="user-title">Title: {props.user_title}</div>
-      <div className="user-rating"><Rate disabled value={props.user_rating}/></div>
+      <div className="user-rating"><Rate disabled value={parseInt(props.user_rating)}/></div>
       <div className="user-downloads">Downloads: {props.user_downloads}</div>
     </Link>
   )
