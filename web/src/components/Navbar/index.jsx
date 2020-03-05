@@ -80,6 +80,7 @@ const Navbar = () => {
             history.push('/users/' + userHooks.user.username);
           }}>
             <UserOutlined className="profile-icon" />
+            {" "}{userHooks.user.firstName}
           </Menu.Item>
         ]
         :
