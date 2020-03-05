@@ -20,8 +20,21 @@ const Avatar = (props) => {
     }
   }, [props.background]);
   const [bg, setBg] = useState(c);
+
+  const [className, setClass] = useState("Avatar");
+  useEffect(() => {
+    let append = "";
+    switch(props.size) {
+      case "large":
+      case "small":
+        append = props.size;
+        break;
+    }
+    setClass("Avatar " + append);
+  }, []);
+
   return (
-    <div className="Avatar" style={{background:bg}}>
+    <div className={className} style={{background:bg}}>
     </div>
   )
 }

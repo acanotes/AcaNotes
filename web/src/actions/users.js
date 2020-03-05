@@ -20,7 +20,7 @@ export async function getTop(count = 5) {
 // Returns only public user data for given username or id
 export async function getUser(user) {
   return new Promise((resolve, reject) => {
-    axios({method: "GET", url:config.API_URL + config.routes.users.getUser + "?id=" + user, headers: {
+    axios({method: "GET", url:config.API_URL + config.routes.users.user + "?id=" + user, headers: {
       Authorization: `Bearer ${getToken()}`
     }}).then((response) => {
       resolve(JSON.parse(response.data.res));
@@ -32,7 +32,7 @@ export async function getUser(user) {
 }
 export async function getUserImage(user) {
   return new Promise((resolve, reject) => {
-    axios({method: "GET", url:config.API_URL + config.routes.users.getUserImage + "?id=" + user, headers: {
+    axios({method: "GET", url:config.API_URL + config.routes.users.userImage + "?id=" + user, headers: {
       Authorization: `Bearer ${getToken()}`
     }}).then((response) => {
       resolve(response.data.res);
@@ -51,6 +51,22 @@ export async function getPopularUploads(user) {
       resolve(JSON.parse(response.data.res));
     }).catch((error) => {
       message.error("Failed to retrieve popular uploads");
+      reject(error);
+    });
+  });
+}
+
+export async function updateUser(user) {
+  return new Promise((resolve, reject) => {
+    axios({method: "PATCH", url:config.API_URL + config.routes.users.user + "?id=" + user,
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      },
+      body: user
+    }).then((response) => {
+      resolve(response);
+    }).catch((error) => {
+      message.error("Failed to update user");
       reject(error);
     });
   });
