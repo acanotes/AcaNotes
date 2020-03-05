@@ -60,9 +60,10 @@ else if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
   // Get S3 client to prepare a signed url
   try {
     $key = 'users/' . $id . '/resources/profilePicture.png';
-    $cmd = $s3Client->getCommand('GetObject', [
+    $cmd = $s3Client->getCommand('PutObject', [
         'Bucket' => $s3Bucket,
-        'Key' => $key
+        'Key' => $key,
+        'ACL' => 'public-read'
     ]);
 
     $signedRequest = $s3Client->createPresignedRequest($cmd, '+20 minutes');
