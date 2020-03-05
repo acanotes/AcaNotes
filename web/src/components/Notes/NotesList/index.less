@@ -9,8 +9,7 @@
     color: inherit;
   }
   .notes-card {
-    cursor: pointer;
-    box-shadow: 0 2px 16px @box-shadow-1;
+    box-shadow: @box-shadow-1;
     padding: @margin-base;
     background-color: @white;
     border-radius: 4px;
@@ -21,6 +20,9 @@
     margin-bottom: @margin-base * 2;
     margin-right: @margin-base;
     margin-left: @margin-base;
+    * {
+      cursor: pointer !important;
+    }
     .notes-title {
       font-size: @font2;
       font-weight: 600;
@@ -28,7 +30,7 @@
     transition: all 0.2s;
   }
   .notes-card:hover {
-    box-shadow: 0 2px 24px @box-shadow-2;
+    box-shadow: @box-shadow-2;
     z-index: 1;
   }
 }

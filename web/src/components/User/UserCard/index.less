@@ -10,7 +10,20 @@
   margin-left: @margin-base * 2;
   text-align: center;
   font-size: @font2;
+  color: inherit;
+  background-color: @white;
+  box-shadow: @box-shadow-1;
+  padding: @margin-base;
+  transition: all 0.2s;
+  border-radius: 4px;
+  * {
+    cursor: pointer !important;
+  }
   .user-name {
     margin-top: @margin-base;
   }
+}
+.UserCard:hover {
+  color: inherit;
+  box-shadow: @box-shadow-2;
 }

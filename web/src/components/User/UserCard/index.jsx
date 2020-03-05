@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Rate, Skeleton } from 'antd';
 import Avatar from '../Avatar';
 import './index.less';
@@ -17,13 +18,13 @@ const UserCard = (props) => {
   let i2 = randomColors(i1);
   let c = "linear-gradient(" + Math.random() + "turn, " + i1  + ", " + i2 + ")";
   return (
-    <div className="UserCard">
+    <Link className="UserCard" to={"/users/" + props.user_uid}>
       <Avatar background={props.user_image}/>
       <div className="user-name">Name: {props.user_first}</div>
       <div className="user-title">Title: {props.user_title}</div>
       <div className="user-rating"><Rate disabled value={props.user_rating}/></div>
       <div className="user-downloads">Downloads: {props.user_downloads}</div>
-    </div>
+    </Link>
   )
 }
 
