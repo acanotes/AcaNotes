@@ -7,19 +7,19 @@ const Footer = () => {
 
   return (
     <div className="Footer">
-      <div className = "Icons">
+      <div className="icons-wrapper">
         <a href='/contributors'>
-          <TeamOutlined className="Icons"/>
-        </a> 
-        <a href='https://www.facebook.com/acanotes/' target="_blank" >
-          <FacebookOutlined className="Icons"/>
-        </a> 
-        <a href='https://www.instagram.com/acanotes/' target="_blank" >
-          <InstagramOutlined className="Icons"/>
+          <TeamOutlined className="icon"/>
         </a>
-      </div> 
+        <a href='https://www.facebook.com/acanotes/' target="_blank" >
+          <FacebookOutlined className="icon"/>
+        </a>
+        <a href='https://www.instagram.com/acanotes/' target="_blank" >
+          <InstagramOutlined className="icon"/>
+        </a>
+      </div>
       <div className="copyright">
-        Copyright © {(new Date).getFullYear()} AcaNotes.com 
+        Copyright © {(new Date).getFullYear()} AcaNotes.com
       </div>
     </div>
   )

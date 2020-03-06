@@ -11,7 +11,7 @@ const MainPage = () => {
       <div className="MainPage">
         <div className="hero-container">
           <div className="container">
-            <h1 className="title">Acanotes</h1>
+            <h1 className="title">AcaNotes</h1>
             <p className="sub-title">The ultimate online note-sharing platform designed specifically for IB students. </p>
           </div>
         </div>
