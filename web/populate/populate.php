@@ -22,10 +22,7 @@
   // $database = getenv("DB_NAME");
 
   $conn = mysqli_connect($hostname, $username, $password, $database);
-  if(! $conn ) {
-    echo json_encode(array("error" => "Server Database is Down"));
-    exit();
-  }
-  $sql = file_get_contents('populate_data.sql');
-  mysqli_query($conn, $sql);
+  $sql = file_get_contents('file.sql');
+  echo $sql;
+  // $qr = $db->exec($sql);
 ?>

@@ -19,9 +19,9 @@
 -- Current Database: `acanotes`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `acanotes` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-
-USE `acanotes`;
+-- CREATE DATABASE /*!32312 IF NOT EXISTS*/ `acanotes` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+--
+-- USE `acanotes`;
 
 --
 -- Table structure for table `announcements`
