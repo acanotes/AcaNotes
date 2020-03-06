@@ -12,7 +12,7 @@
     $database = ltrim($dbparts['path'],'/');
 
     $db = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-    $sql = file_get_contents('../../populate_db/populate_data.sql');
+    $sql = file_get_contents('./populate_data.sql');
     $stmt = $db->prepare($sql);
     if ($stmt->execute()) {
       echo "Successfully populated database with default data";
