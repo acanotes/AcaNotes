@@ -39,7 +39,7 @@ const ProfilePage = () => {
       <div className="ProfilePage">
         <div className="main-container">
           <div className="profile-pic-wrapper">
-            <Avatar size="large" background={profilePic}/>
+            <Avatar size="large" background={profilePic} className="avatar"/>
           </div>
           <h2>{profile.user_first} {profile.user_last}</h2>
           <div className="title">Honorary Title: <span>{profile.user_title}</span></div>
