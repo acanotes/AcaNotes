@@ -36,24 +36,30 @@ This runs our development PHP backend from http://localhost:5000
 
 To start up the frontend, cd into `web` and `npm start` or from root directory run
 
-```cmd
+```bash
 npm start --prefix=web
 ```
 
 This will run the frontend from http://localhost:3000.
 
-To start up MariaDB, on Mac OS run
+To start up MariaDB, the backend database, run
 
-```cmd
-brew services start mariadb
+```bash
+docker-composer up -d
 ```
 
 Test connection by going to http://localhost:5000/api/connect.php
 
+You can view the database data directly with http://localhost:8080
 
-Populate the local database with default data:
-```cmd
-mysql -h spvunyfm598dw67v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u jkxyx78jy5ggulvw -pquwwf5br6nbc2giz thw42gj9sxaws9w7 < populate_data.sql
+By default, root user is `root` and password is dependent on your .env file. Check `sample.env`
+
+Local database will by default populate itself with `populate_db/populdate_data.sql` and whatever other .sql files are in the `populate_db` folder.
+
+To repopulate the database from a clean slate, run
+
+```bash
+docker-compose rm -fv
 ```
 
 ## Local Production Setup
@@ -89,7 +95,7 @@ If for some reason too much memory is used, likely an exception was thrown and j
 
 ## Installations
 
-Install PHP, composer, npm, and Node.js
+Install PHP, composer, npm, and Node.js, docker
 
 
 
