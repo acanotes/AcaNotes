@@ -19,6 +19,8 @@
     }
     else {
       echo "Failed to populate database";
+      echo "\nPDO::errorInfo():\n";
+      print_r($db->errorInfo());
     }
   }
   else {
