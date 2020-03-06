@@ -13,23 +13,20 @@ export async function uploadNote(data) {
       let rdata = response.data;
       let signedUrl = rdata.signedUrl;
       let key = rdata.key;
-      let reader = new FileReader();
-      // reader.onload = () => {
-        axios({
-          method: "PUT",
-          url: signedUrl,
-          data: data.file.file.originFileObj,
-          headers: { 'Content-Type': 'application/pdf' }
-        }).then((response) => {
-          console.log(response);
-          message.success("Succesfully uploaded note!");
-          resolve(response);
-        }).catch((error) => {
-          console.error(error);
-          message.error("Failed to upload note, try again later");
-          reject(error);
-        });
-      // }
+      axios({
+        method: "PUT",
+        url: signedUrl,
+        data: data.file.file.originFileObj,
+        headers: { 'Content-Type': 'application/pdf' }
+      }).then((response) => {
+        console.log(response);
+        message.success("Succesfully uploaded note!");
+        resolve(response);
+      }).catch((error) => {
+        console.error(error);
+        message.error("Failed to upload note, try again later");
+        reject(error);
+      });
 
     }).catch((error) => {
       message.error("Failed to upload note, try again later");

@@ -32,7 +32,6 @@ const CreateNote = () => {
     if (lastFile) {
       setFileList([lastFile]);
     }
-    let fr = new FileReader();
 
     setValue("file", {file: lastFile});
   }
