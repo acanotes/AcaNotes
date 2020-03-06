@@ -47,15 +47,39 @@ if (isset($data['username']))
 
       //Insert user into database
       $insertsql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd, verified, vkey, user_title, user_rating) VALUES ('$first', '$last', '$email', '$uid', '$hashedPwd', 1, '$vkey' , 'Freshie', NULL);";
-      if(mysqli_query($conn, $insertsql))
+      if($conn -> query($insertsql))
       {
-        $res['res'] = "Registered successfully";
-        echo json_encode($res);
-        exit();
+        // $to = $email;
+        // $subject = "AcaNotes Email Verification";
+        // $message = "Greetings $first,
+        //
+        // Welcome to AcaNotes, the ultimate online database for sharing notes on your IB subjects. You are receiving this email so you can verify your account.
+        //
+        // We can't wait for you to get started.
+        //
+        // Paste this URL and you're good to go: https://acanotes.com/registration/verify.php?vkey=$vkey";
+        //
+        // $headers = "From: service@acanotes.com";
+        //
+        //
+        // if(mail($to, $subject, $message, $headers))
+        // {
+          $res['res'] = "Registered successfully";
+          echo json_encode($res);
+          exit();
+        // }
+        // else
+        // {
+        //   $res['error'] = "Failed to register completely";
+        //   echo json_encode($res);
+        //   exit();
+        // }
+
       }
       else {
+
         http_response_code(420);
-        $res['error'] = "Registration failed";
+        $res['error'] = "Registration failed - Reason: " . $conn -> error;
         echo json_encode($res);
         exit();
       }

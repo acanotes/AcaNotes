@@ -13,21 +13,12 @@ import './index.less';
 
 const Login = () => {
 
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, errors } = useForm();
   const [loading, setLoading] = useState(false);
   const userHooks = React.useContext(UserContext);
   const history = useHistory();
   const onSubmit = (data) => {
-    if (!data.username) {
-      message.error('Missing username or email');
-      return;
-    }
-    if (!data.password) {
-      message.error('Missing password');
-    }
-    // console.log(data);
-    // Add your axios stuff here
-    // data.email, data.password
+
     console.log(data);
     axios.post(config.API_URL + config.routes.auth.login, data).then((response: any) => {
       console.log(response.data);
@@ -59,7 +50,7 @@ const Login = () => {
         className="login-form"
       >
         <h2 className="login-title">Login</h2>
-        <Form.Item>
+        <Form.Item validateStatus={errors.username && "error"}>
           <Input
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
             placeholder="Username or Email"
@@ -67,7 +58,7 @@ const Login = () => {
             onChange={handleChange}
           />
         </Form.Item>
-        <Form.Item>
+        <Form.Item validateStatus={errors.password && "error"}>
           <Input
             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
             type="password"

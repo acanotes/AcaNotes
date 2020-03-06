@@ -3,15 +3,59 @@
 @import './base.less';
 html {
   font-size:14px;
+  @media only screen and (max-width: @lg) {
+    font-size: 14px;
+  }
+  @media only screen and (max-width: @sm) {
+    font-size: 12px;
+  }
+
+}
+@font-face {
+  font-family: 'Cantarell';
+  src: url('../assets/Cantarell-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+
 }
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   color: @black;
   background-color: @white;
+  line-height: 1.5;
+  font-weight: 400;
 }
 h1 {
+  font-family: 'Cantarell', 'Open Sans', Arial, sans-serif;
   font-size: @font7;
+  font-weight: 900;
+  margin-top:  @margin-base * 3;
+  margin-bottom:  @margin-base * 3;
+  font-weight: 600;
 }
 h2 {
+  font-family: 'Cantarell', 'Open Sans', Arial, sans-serif;
   font-size: @font6;
+  font-weight: 900;
+  margin-top:  @margin-base * 2;
+  margin-bottom:  @margin-base * 2;
+  font-weight: 600;
+}
+h3 {
+  font-size: @font4;
+  margin-top:  @margin-base * 2;
+  margin-bottom:  @margin-base * 2;
+  font-weight: 400;
+}
+h4 {
+  font-size: @font3;
+  margin-top:  @margin-base * 2;
+  margin-bottom:  @margin-base * 2;
+  font-weight: 400;
+}
+p {
+  font-size: @font2;
+  margin-top: @margin-base;
+  margin-bottom:  @margin-base;
+  font-weight: 300;
 }

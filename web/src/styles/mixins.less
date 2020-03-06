@@ -1,8 +1,9 @@
 .container {
-
-  @media screen and (max-width: @sm) {
-    width: 98%;
-    margin-left: 1%;
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  @media screen and (min-width: @sm) {
+    width: calc(100% - 40px);
+    margin-left: 20px;
   }
   @media screen and (min-width: @md) {
     width: 80%;
@@ -15,9 +16,21 @@
   @media screen and (min-width: 2140px) {
     max-width: 1361px;
   }
+  margin-top: 60px;
 }
 .vertical-align {
   position: absolute;
   top: 50%;
+  margin: 0px;
   transform: translateY(-50%);
+}
+.card-1 {
+  margin-bottom: @margin-base * 2;
+  margin-top: @margin-base * 2;
+  border-radius: 5px;
+  padding: 25px;
+  width: 600px;
+  box-shadow: @box-shadow-1;
+  background-color: @white;
+  width: 100%;
 }

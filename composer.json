@@ -3,7 +3,7 @@
 	"description": "Acanotes Platform",
 	"type": "project",
 	"require": {
-
+		"ext-mbstring": "^7.1"
 	},
 	"scripts": {
 		"compile": [

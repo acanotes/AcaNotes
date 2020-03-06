@@ -12,7 +12,21 @@ export default {
       verify:"/api/v1/auth/verify.php"
     },
     create: {
-      note: "/api/v1/createNote.php"
+      note: "/api/v1/content/createNote.php"
+    },
+    announcements: {
+      latest: "/api/v1/announcements/latest.php"
+    },
+    users: {
+      getTop: "/api/v1/users/getTop.php",
+      user: "/api/v1/users/user.php",
+      getPopularUploads: "/api/v1/users/getPopularUploads.php",
+      userImage: "/api/v1/users/userImage.php"
+    },
+    notes: {
+      getTopNotes: "/api/v1/notes/getTopNotes.php",
+      latest:"/api/v1/notes/latest.php",
+      getNote: "/api/v1/notes/getNote.php"
     }
   }
 }

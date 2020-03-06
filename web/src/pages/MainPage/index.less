@@ -1,13 +1,46 @@
 @import '../../styles/base.less';
 
 .MainPage {
-  .main-container {
+  .container {
+    .container();
+    position: relative;
+  }
+  .hero-container{
     padding: 40px;
     background-color: @theme-color-1;
     min-height: 80vh;
     height: 12 * 30px;
-    h1 {
+    .title {
       color: @white;
+      font-size: 8rem;
+      @media only screen and (max-width: @sm) {
+        // font-size: @font6;
+        font-size: 6rem;
+      }
     }
+    .sub-title {
+      color: @white;
+      font-size: @font3;
+      @media only screen and (max-width: @sm) {
+        // font-size: @font1;
+      }
+    }
+  }
+  .signup-btn-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+  .mascot-wrapper{
+    text-align: center;
+    .mascot {
+      max-width: 300px;
+    }
+  }
+  .signup-btn {
+    max-width: 320px;
+    width: 100%;
+    font-size: @font4;
+    height: 48px;
+
   }
 }

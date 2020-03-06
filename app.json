@@ -25,8 +25,7 @@
   "environments": {
     "review": {
       "scripts": {
-        "heroku-postbuild": "cd web && composer install && npm install && npm run build",
-        "postdeploy": "php web/populate/populate.php"
+        "heroku-postbuild": "cd web && composer install && npm install && npm run build"
       },
       "buildpacks": [
         {
