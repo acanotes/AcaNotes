@@ -18,9 +18,9 @@ export async function getTop(count = 5) {
 }
 
 // Returns only public user data for given username or id
-export async function getUser(user) {
+export async function getUser(id) {
   return new Promise((resolve, reject) => {
-    axios({method: "GET", url:config.API_URL + config.routes.users.user + "?id=" + user, headers: {
+    axios({method: "GET", url:config.API_URL + config.routes.users.user + "?id=" + id, headers: {
       Authorization: `Bearer ${getToken()}`
     }}).then((response) => {
       resolve(JSON.parse(response.data.res));
@@ -30,12 +30,14 @@ export async function getUser(user) {
     });
   });
 }
-export async function getUserImage(user) {
+
+// Returns only public user profile picture URI given username or id
+export async function getUserImage(id) {
   return new Promise((resolve, reject) => {
-    axios({method: "GET", url:config.API_URL + config.routes.users.userImage + "?id=" + user, headers: {
+    axios({method: "GET", url:config.API_URL + config.routes.users.userImage + "?id=" + id, headers: {
       Authorization: `Bearer ${getToken()}`
-    }}).then((response) => {
-      resolve(response.data.res);
+    }}).then((res) => {
+      resolve(res.data.signedUrl);
     }).catch((error) => {
       message.error("Failed to retrieve user profile picture");
       reject(error);
@@ -69,6 +71,42 @@ export async function updateUser(user) {
       resolve(response.data.token);
     }).catch((error) => {
       message.error("Failed to update user");
+      reject(error);
+    });
+  });
+}
+
+// uploads user image for this user
+export async function uploadUserImage(user, imageFile) {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: "PUT", url:config.API_URL + config.routes.users.userImage + "?id=" + user.username,
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    }).then((response) => {
+
+      let rdata = response.data;
+      let signedUrl = rdata.signedUrl;
+      let key = rdata.key;
+      axios({
+        method: "PUT",
+        url: signedUrl,
+        data: imageFile,
+        headers: { 'Content-Type': 'application/image' }
+      }).then((response) => {
+        console.log(response);
+        message.success("Succesfully uploaded profile picture!");
+        resolve(response);
+      }).catch((error) => {
+        console.error(error);
+        message.error("Failed to upload picture, try again later");
+        reject(error);
+      });
+
+    }).catch((error) => {
+      message.error("Failed to upload picture, try again later");
+      console.error(error);
       reject(error);
     });
   });

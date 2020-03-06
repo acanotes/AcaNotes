@@ -1,6 +1,29 @@
+@import '../../styles/base.less';
 .EditProfilePage {
+  .main-container {
+    .container()
+  }
   .form-wrapper {
     max-width: 480px;
     margin: auto;
+  }
+  .avatar {
+    width: 192px;
+    height: 192px;
+    margin-bottom: @margin-base * 2;
+  }
+}
+.EditProfilePage-Modal {
+  .avatar {
+    width: 192px;
+    height: 192px;
+    margin-bottom: @margin-base * 2;
+  }
+  .upload-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+  .new-profile-pic-wrapper {
+    margin-bottom: @margin-base * 2;
   }
 }

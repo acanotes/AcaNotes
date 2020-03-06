@@ -15,8 +15,11 @@ const Avatar = (props) => {
   let i2 = randomColors(i1);
   let c = "linear-gradient(" + Math.random() + "turn, " + i1  + ", " + i2 + ")";
   useEffect(() => {
-    if (props.background) {
-      setBg(props.background);
+    if (props.background != "") {
+      setBg(`url("${props.background}")`);
+    }
+    else {
+      setBg(c);
     }
   }, [props.background]);
   const [bg, setBg] = useState(c);
@@ -30,11 +33,11 @@ const Avatar = (props) => {
         append = props.size;
         break;
     }
-    setClass("Avatar " + append);
+    setClass("Avatar " + append + " " + props.className);
   }, []);
 
   return (
-    <div className={className} style={{background:bg}}>
+    <div className={className} style={{backgroundImage:bg}}>
     </div>
   )
 }

@@ -34,13 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         'Bucket' => $s3Bucket,
         'Key' => $key
     ]);
+    $response = $s3Client->doesObjectExist($s3Bucket, $key);
+    if ($response) {
+      $signedRequest = $s3Client->createPresignedRequest($cmd, '+20 minutes');
+      $presignedUrl = (string)$signedRequest->getUri();
 
-    $signedRequest = $s3Client->createPresignedRequest($cmd, '+20 minutes');
-    $presignedUrl = (string)$signedRequest->getUri();
-
-    $res['signedUrl'] = $presignedUrl; // get request to this URL allows you to view the object
-    $res['key'] = $key;
-    echo json_encode($res);
+      $res['signedUrl'] = $presignedUrl; // get request to this URL allows you to view the object
+      echo json_encode($res);
+    }
+    else {
+      // no profile picture, return no url
+      $res['signedUrl'] = '';
+      echo json_encode($res);
+    }
   }
   catch (Exception $error) {
     http_response_code(420);
@@ -48,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode($res);
   }
 }
-else if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
+else if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
   $res = array('error' => '');
   $id = mysqli_real_escape_string($conn, $_GET['id']);
   if (empty($id)) {

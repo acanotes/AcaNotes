@@ -4,7 +4,7 @@ import MainLayout from 'layouts/MainLayout';
 import Avatar from 'components/User/Avatar';
 import NotesList from 'components/Notes/NotesList';
 import { useParams, Link } from 'react-router-dom';
-import { getUser, getPopularUploads } from 'actions/users';
+import { getUser, getPopularUploads, getUserImage } from 'actions/users';
 
 import UserContext from 'UserContext.js';
 import { errorLogger } from 'utils';
@@ -16,7 +16,7 @@ const ProfilePage = () => {
   const userHooks = React.useContext(UserContext);
   const [profile, setProfile] = useState({});
   const [popularUploads, setPopularUploads] = useState([]);
-
+  const [profilePic, setProfilePic] = useState("");
   const mine = params.id === userHooks.user.username;
 
   useEffect(() => {
@@ -27,6 +27,9 @@ const ProfilePage = () => {
     }).catch((error) => {
       errorLogger(error);
     })
+    getUserImage(params.id).then((res) => {
+      setProfilePic(res);
+    }).catch(errorLogger)
     getPopularUploads(params.id).then((res) => {
       setPopularUploads(res);
     }).catch(errorLogger)
@@ -36,7 +39,7 @@ const ProfilePage = () => {
       <div className="ProfilePage">
         <div className="main-container">
           <div className="profile-pic-wrapper">
-            <Avatar size="large"/>
+            <Avatar size="large" background={profilePic}/>
           </div>
           <h2>{profile.user_first} {profile.user_last}</h2>
           <div className="title">Honorary Title: <span>{profile.user_title}</span></div>

@@ -12,7 +12,6 @@ import './index.less';
 
 const EditUserForm = (props) => {
   const { register, handleSubmit, setValue, errors } = useForm();
-  console.log(props.default);
   const [loading, setLoading] = useState(false);
   const userHooks = React.useContext(UserContext);
   const history = useHistory();
@@ -20,8 +19,6 @@ const EditUserForm = (props) => {
   const [madeEdit, setMadeEdit] = useState(false);
 
   const onSubmit = (data) => {
-
-    console.log(data);
     updateUser({...data, username: userHooks.user.username}).then((token) => {
       message.success("Updated Profile");
       const claims = tokenGetClaims(token);
