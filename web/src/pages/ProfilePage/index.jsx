@@ -48,7 +48,7 @@ const ProfilePage = () => {
           <div className="desc">Description: <p>{profile.user_description || "User has no description"}</p></div>
           <div className="popular-uploads">
             <div className="title">Popular Uploads</div>
-            {popularUploads ? <NotesList notes={popularUploads}/> : <p>This user has no uploads yet!</p>}
+            {popularUploads ? <NotesList notes={popularUploads}/> : <p>This user has no uploads available</p>}
           </div>
           { mine && <Link to={"/editProfile"}><Button size="large">Edit Profile</Button></Link> }
         </div>
