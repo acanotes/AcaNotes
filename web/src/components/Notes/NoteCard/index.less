@@ -1,0 +1,30 @@
+@import '../../../styles/base.less';
+
+.NoteCard {
+  color: inherit;
+  box-shadow: @box-shadow-1;
+  padding: @margin-base;
+  background-color: @white;
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  max-width: 264px;
+  margin-top: @margin-base * 2;
+  margin-bottom: @margin-base * 2;
+  margin-right: @margin-base;
+  margin-left: @margin-base;
+  * {
+    cursor: pointer !important;
+  }
+  .notes-title {
+    font-size: @font2;
+    font-weight: 600;
+  }
+  transition: all 0.2s;
+}
+.NoteCard:hover {
+  color: inherit;
+  box-shadow: @box-shadow-2;
+  z-index: 1;
+  transform: translateY(-12px);
+}

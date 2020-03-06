@@ -49,6 +49,7 @@ if (isset($data['username']))
                     "firstName" => $row['user_first'],
                     "lastName" => $row['user_last'],
                     "email" => $row['user_email'],
+                    "description" => $row['user_description'],
                     "title" => $row['user_title']
                 );
                 $res['error'] = "";

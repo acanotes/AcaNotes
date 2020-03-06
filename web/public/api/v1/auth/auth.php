@@ -14,6 +14,8 @@ class Auth {
 
     return $verified;
   }
+
+  // checks if requester is authenticated, otherwise not authorized and exits
   public static function authenticateRoute() {
 
     if ($_SERVER['REQUEST_METHOD'] != 'OPTIONS') {
@@ -31,6 +33,16 @@ class Auth {
         $decoded_array = (array) $token_data;
         return $decoded_array;
       }
+    }
+  }
+  // Checks if the token matches the ID, otherwise not authorized and exits
+  public static function owner($token, $id) {
+    if ($token['username'] != $id) {
+      $res = array('error' => '');
+      http_response_code(420);
+      $res['error'] = "Not authorized for this request";
+      echo json_encode($res);
+      exit();
     }
   }
 }

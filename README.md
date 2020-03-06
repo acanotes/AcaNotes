@@ -40,7 +40,7 @@ To start up the frontend, cd into `web` and `npm start` or from root directory r
 npm start --prefix=web
 ```
 
-This will run the frontend from http://localhost:3000. 
+This will run the frontend from http://localhost:3000.
 
 To start up MariaDB, on Mac OS run
 
@@ -83,6 +83,8 @@ Note all backend only works through http://localhost:5000/api
 ## Common Issues...
 
 On Mac OS, if you can't seem to run `heroku local web -f Procfile.dev`, make sure to kill the httpd process. Find its PID by running `httpd` and then kill it
+
+If for some reason too much memory is used, likely an exception was thrown and just do a `var_dump($error)` or something similar to find that error
 
 
 ## Installations
