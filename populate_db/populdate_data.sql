@@ -67,6 +67,22 @@ CREATE TABLE `notes` (
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table 'ratings'
+--
+DROP TABLE IF EXISTS 'ratings';
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE 'ratings'(
+  'rating_id' int(11) NOT NULL AUTO_INCREMENT,
+  'note_id' int(11) NOT NULL,
+  'note_author' varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  'note_rater' varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY('rating_id')
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
 --
 -- Dumping data for table `notes`
 --
