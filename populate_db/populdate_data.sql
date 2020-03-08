@@ -135,7 +135,7 @@ CREATE TABLE 'ratings'(
 ---
 LOCK TABLES 'ratings' WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO 'ratings' VALUES(0,)
+INSERT INTO 'ratings' VALUES(0, 123, 'aliu1324', 'admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
