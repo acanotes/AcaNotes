@@ -74,7 +74,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-INSERT INTO 'notes' VALUES (500, 'ALIU TEST NOTE', 'TOK', 'aliu1324', '2020-03-8 04:55:41.253023', 'ALIUS TEST NOTE DUH', 3.0, 12, 'duhduhduh');
+
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,6 +124,7 @@ DROP TABLE IF EXISTS 'ratings';
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE 'ratings'(
   'rating_id' int(11) NOT NULL AUTO_INCREMENT,
+  'rating_value' int(11) NOT NULL,
   'note_id' int(11) NOT NULL,
   'note_author' varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   'note_rater' varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -135,7 +136,7 @@ CREATE TABLE 'ratings'(
 ---
 LOCK TABLES 'ratings' WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO 'ratings' VALUES(0, 123, 'aliu1324', 'admin');
+
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
