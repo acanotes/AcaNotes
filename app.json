@@ -25,7 +25,8 @@
   "environments": {
     "review": {
       "scripts": {
-        "heroku-postbuild": "cd web && composer install && npm install && npm run build"
+        "heroku-postbuild": "cd web && composer install && npm install && npm run build",
+        "postdeploy": ""
       },
       "buildpacks": [
         {
@@ -36,8 +37,11 @@
         }
       ],
       "addons": [
-      "jawsdb-maria"
-      ]
+        "jawsdb-maria"
+      ],
+      "env": {
+        "PHP_ENV": "review"
+      }
     }
   }
 }
