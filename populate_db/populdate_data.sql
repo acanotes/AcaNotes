@@ -135,9 +135,9 @@ CREATE TABLE 'ratings'(
 --- Dumping data for table 'ratings'
 ---
 LOCK TABLES 'ratings' WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
 
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
