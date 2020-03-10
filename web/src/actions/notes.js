@@ -77,3 +77,49 @@ export async function getNote(id) {
     });
   });
 }
+
+
+/*
+  Rating: {rating: number, note_id: number}
+*/
+export async function rateNote(rating) {
+  return new Promise((resolve, reject) => {
+    if (rating === undefined) {
+      reject(new Error("No rating given"));
+    }
+    axios({
+      method: "POST",
+      url: config.API_URL + config.routes.notes.ratings,
+      data: rating,
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    }).then((res) => {
+      message.success("Succesfully rated note");
+      resolve(res);
+    }).catch((error) => {
+      message.error("Failed to rate note");
+      reject(error);
+    });
+  });
+}
+
+export async function getMyRating(noteID) {
+  return new Promise((resolve, reject) => {
+    if (noteID === undefined) {
+      reject(new Error("No rating given"));
+    }
+    axios({
+      method: "GET",
+      url: config.API_URL + config.routes.notes.ratings + "?note_id=" + noteID,
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    }).then((res) => {
+      resolve(res.data);
+    }).catch((error) => {
+      message.error("Failed to get your rating");
+      reject(error);
+    });
+  });
+}

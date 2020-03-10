@@ -60,6 +60,7 @@ To repopulate the database from a clean slate, run
 
 ```bash
 docker-compose rm -fv
+docker-compose up
 ```
 
 ## Local Production Setup
