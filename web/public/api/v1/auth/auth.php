@@ -24,7 +24,7 @@ class Auth {
       $token_data = self::verifyToken($auth_token);
       if (empty($auth_token) || ($token_data == false)) {
         $res = array('error' => '');
-        http_response_code(420);
+        http_response_code(401);
         $res['error'] = "Route requires authentication, user not authenticated";
         echo json_encode($res);
         exit();
@@ -39,7 +39,7 @@ class Auth {
   public static function owner($token, $id) {
     if ($token['username'] != $id) {
       $res = array('error' => '');
-      http_response_code(420);
+      http_response_code(401);
       $res['error'] = "Not authorized for this request";
       echo json_encode($res);
       exit();

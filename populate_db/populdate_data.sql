@@ -127,7 +127,8 @@ CREATE TABLE `ratings`(
   `note_id` int(11) NOT NULL,
   `note_author` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `note_rater` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY(`rating_id`)
+  PRIMARY KEY(`rating_id`),
+  UNIQUE KEY (`note_id`, `note_rater`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 ---

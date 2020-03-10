@@ -4,6 +4,8 @@ import { Button, Rate } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
+import RateNote from 'components/Notes/RateNote';
+
 import { getNote } from 'actions/notes';
 
 import { errorLogger } from 'utils';
@@ -29,15 +31,15 @@ const NotePage = (props) => {
       <div className="NotePage">
       <Header title="Note"/>
         <div className="main-container">
-          <h2 class="title">{note.a_title}</h2>
+          <h2 className="title">{note.a_title}</h2>
           <div className="note-meta">
-          <p class="author">Author: <a href={'/users/' + note.a_author}>{note.a_author}</a></p>
-          <p class="subject">Subject: <a href={'#'}>{note.a_subject}</a></p>
-          <p class="desc">{note.a_description}</p>
-          <p class="downloads">{note.a_downloads}</p>
-          <p class="rating">Average Rating: {note.a_rating}/5</p>
+          <p className="author">Author: <a href={'/users/' + note.a_author}>{note.a_author}</a></p>
+          <p className="subject">Subject: <a href={'#'}>{note.a_subject}</a></p>
+          <p className="desc">Description: {note.a_description}</p>
+          <p className="downloads">Downloads: {note.a_downloads}</p>
+          <p className="rating">Average Rating: {note.a_rating}/5</p>
           <p>Rate this note</p>
-          <Rate value={myRating} onChange={(val) => setMyRating(val)} />
+          <RateNote note_id={note.a_id} />
           </div>
           <div className="pdf-wrapper">
           <iframe
