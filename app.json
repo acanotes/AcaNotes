@@ -36,8 +36,11 @@
         }
       ],
       "addons": [
-      "jawsdb-maria"
-      ]
+        "jawsdb-maria"
+      ],
+      "env": {
+        "PHP_ENV": "review"
+      }
     }
   }
 }

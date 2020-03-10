@@ -67,6 +67,7 @@ CREATE TABLE `notes` (
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
 --
 -- Dumping data for table `notes`
 --
@@ -112,6 +113,33 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES ('AcaNotes','Admin','acanotes@protonmail.com','$2y$10$EnSV4wwR9xCwJX2u8udfEuUlCxU6we.3rdGUn55vkxJhiLdTqFrYu','admin',123,'Hi! This is the AcaNotes admin account.',4,7,0,'Freshie','4455f8173c0b5bee0920f63e2e224dd5',1,'2020-02-16 04:55:41.253023'),('Andrew','Liu','all2209@columbia.edu','$2y$10$qeaizsQe/C8sPbmROeJtSe6ApM0yoDamBj6SR4C6EtkvgVIhFikl6','aliu1324',124,'',NULL,0,0,'Freshie','e6ab4a17c843ecfec75d9996c3ad050f',1,'2020-02-16 04:57:31.850082'),('Emma','Liu','emma.liuosm@gmail.com','$2y$10$ZOLb5d6VzLkKhnTkMsIzbuc68gGbfu2zr5CGBcHPi9G7hbQMkL/2W','ealu',125,'A junior at ISB (International School of Beijing) in her first year of the IBDP! Here to share her ugly notes :)',4,1,0,'Freshie','f8f0daedc2cdd85c967c152d69de260c',1,'2020-02-16 07:51:13.483521'),('Stone','Tao','stao@ucsd.edu','$2y$10$j4mHr1sfrcvP6fRFfNAmHOq4sweOlItmlkYKUOETtDB2rSvMZ0nVy','stonet2000',126,'',NULL,0,0,'Freshie','dc2a014abe210d2b0497a540c8d372a5',1,'2020-02-28 03:19:31.243962'),('Test','Name','test@ucsd.edu','$2y$10$HamGUrA.ex5Ucy8COEqCp.XH.zWD69ZIQS7KzW.xue8uHDFMg7VEO','test',127,'',NULL,0,0,'Freshie','c00a7decb73fe9dc44fb26b290f9e6ca',1,'2020-02-28 03:19:47.761438');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+--
+-- Table structure for table 'ratings'
+--
+DROP TABLE IF EXISTS 'ratings';
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE 'ratings'(
+  'rating_id' int(11) NOT NULL AUTO_INCREMENT,
+  'rating_value' int(11) NOT NULL,
+  'note_id' int(11) NOT NULL,
+  'note_author' varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  'note_rater' varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY('rating_id')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+---
+--- Dumping data for table 'ratings'
+---
+LOCK TABLES 'ratings' WRITE;
+/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
