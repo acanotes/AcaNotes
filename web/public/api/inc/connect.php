@@ -21,8 +21,14 @@
   // $password = getenv("DB_PASSWORD");
   // $database = getenv("DB_NAME");
 
-  $conn = mysqli_connect($hostname, $username, $password, $database);
-  if(! $conn ) {
+  try {
+    $conn = mysqli_connect($hostname, $username, $password, $database);
+    if(! $conn ) {
+      echo json_encode(array("error" => "Server Database is Down "));
+      exit();
+    }
+  }
+  catch(Exception $error) {
     echo json_encode(array("error" => "Server Database is Down"));
     exit();
   }

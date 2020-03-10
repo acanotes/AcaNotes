@@ -28,7 +28,7 @@ if (isset($data['token']))
   }
   try {
 
-  }
+  } 
   catch (Exception $error) {
 
   }

@@ -45,7 +45,6 @@ const Register = () => {
   };
   // register inputs
   useEffect(() => {
-    console.log(process.env)
     register({ name: 'username' }, { required: true});
     register({ name: 'first'}, { required: true });
     register({ name: 'last' });

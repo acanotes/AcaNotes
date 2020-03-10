@@ -17,6 +17,7 @@ import CreatePage from './pages/Create';
 import TodayPage from './pages/Today';
 
 import ProfilePage from './pages/ProfilePage';
+import EditProfilePage from './pages/EditProfilePage';
 
 import { getCookie, setCookie, tokenGetClaims } from './utils'
 import { verifyToken } from './actions/auth'
@@ -67,6 +68,8 @@ function App() {
               <Route path="/login" exact component={LoginPage} />
               <Route path="/register" exact component={RegisterPage} />
               <Route path="/contributors" exact component={ContributorsPage} />
+              <Route path="/users/:id" exact component={(props) => requireAuth(ProfilePage, props)} />
+              <Route path="/editProfile" exact component={() => requireAuth(EditProfilePage)} />
               <Route path="/create" exact component={() => requireAuth(CreatePage)} />
               <Route path="/today" exact component={() => requireAuth(TodayPage)} />
               <Route path="/notes-wiki" exact component={() => requireAuth(NotesWikiPage)} />
