@@ -47,7 +47,7 @@ const NotePage = (props) => {
           <canvas id="pdf-view"></canvas>
 
           {
-            pdfjsLib.getDocument("<?php echo '//'.$_SERVER['HTTP_HOST'] .'/'. $path_to_file ?>").then(doc => {
+            pdfjsLib.getDocument(fileURI).then(doc => {
               doc.getPage(1).then(page => {
                 var pdfView = document.getElementById("pdf-view");
                 var context = pdfView.getContext("2d");
