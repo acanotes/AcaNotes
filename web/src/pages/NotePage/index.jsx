@@ -39,12 +39,29 @@ const NotePage = (props) => {
           <p>Rate this note</p>
           <Rate value={myRating} onChange={(val) => setMyRating(val)} />
           </div>
+
           <div className="pdf-wrapper">
-          <iframe
-          className="pdf-viewer"
-            src={fileURI}
-          >
-          </iframe>
+          <h3>Preview</h3>
+          <canvas id="pdf-view"></canvas>
+          {
+            pdfjsLib.getDocument(fileURI).then(doc => {
+              doc.getPage(1).then(page => {
+                var pdfView = document.getElementById("pdf-view");
+                var context = pdfView.getContext("2d");
+  
+                var viewport = page.getViewport(1.5); //size of canvas
+                pdfView.width = viewport.width;
+                pdfView.height = viewport.height;
+  
+                page.render({
+                  canvasContext: context,
+                  viewport: viewport
+                })
+   
+              });
+            });
+          }
+
           <div className="download-row">
             <DownloadOutlined />
             <a href={fileURI} target="_blank">Download</a>
