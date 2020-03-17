@@ -5,7 +5,7 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 
 require '../vendor/autoload.php';
 // Load env variables
-$dotenv = Dotenv\Dotenv::createImmutable('../.env');
+$dotenv = Dotenv\Dotenv::createImmutable('../');
 $dotenv->load();
 
 $request = $_SERVER['REQUEST_URI'];
