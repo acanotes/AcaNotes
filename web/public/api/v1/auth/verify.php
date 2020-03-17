@@ -4,6 +4,9 @@ header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 
 require_once($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
+$dotenv->load();
+
 include '../../inc/connect.php';
 include './auth.php';
 
@@ -28,7 +31,7 @@ if (isset($data['token']))
   }
   try {
 
-  } 
+  }
   catch (Exception $error) {
 
   }
