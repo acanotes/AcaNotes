@@ -24,11 +24,13 @@
   try {
     $conn = mysqli_connect($hostname, $username, $password, $database);
     if(! $conn ) {
+      http_response_code(500);
       echo json_encode(array("error" => "Server Database is Down "));
       exit();
     }
   }
   catch(Exception $error) {
+    http_response_code(500);
     echo json_encode(array("error" => "Server Database is Down"));
     exit();
   }
