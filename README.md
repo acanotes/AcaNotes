@@ -87,6 +87,21 @@ Both frontend and backend are serviced here through http://localhost:5000
 
 Note all backend only works through http://localhost:5000/api
 
+
+## Serving to Production
+
+First run
+
+```bash
+npm run build
+```
+
+from the `web` folder and push it all to master
+
+Deploy from dashboard for master branch
+
+Ensure that the correct contents are inside the web/.env file to be read by our backend
+
 ## Common Issues...
 
 On Mac OS, if you can't seem to run `heroku local web -f Procfile.dev`, make sure to kill the httpd process. Find its PID by running `httpd` and then kill it
