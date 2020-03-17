@@ -4,7 +4,10 @@ header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 
 $data = json_decode(file_get_contents('php://input'), true);
-require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
+$dotenv->load();
+
 include '../../inc/connect.php';
 include '../auth/auth.php';
 include '../../inc/s3.php'; // expose s3Client to globals

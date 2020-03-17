@@ -1,5 +1,7 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
+$dotenv->load();
 
 $email = new \SendGrid\Mail\Mail();
 $email->setFrom("service@acanotes.com", "Aca the Alpaca");
