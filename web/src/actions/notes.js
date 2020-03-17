@@ -78,6 +78,18 @@ export async function getNote(id) {
   });
 }
 
+export async function searchNotes(query) {
+  return new Promise((resolve, reject) => {
+    axios({method: "GET", url:config.API_URL + config.routes.notes.search + "?search_query=" + query, headers: {
+      Authorization: `Bearer ${getToken()}`
+    }}).then((response) => {
+      resolve(response);
+    }).catch((error) => {
+      message.error("Failed to retrieve notes");
+      reject(error);
+    });
+  });
+}
 
 /*
   Rating: {rating: number, note_id: number}

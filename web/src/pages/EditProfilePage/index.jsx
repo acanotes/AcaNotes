@@ -18,7 +18,7 @@ const EditProfilePage = (props) => {
 
   const [ bg, setBG ] = useState("");
   const [ fileList, setFileList ] = useState([]);
-  const [ visible, setVisible ] = useState(true);
+  const [ visible, setVisible ] = useState(false);
   const [ uploadState, setUploadState ] = useState("none");
   const dummyRequest = ({ file, onSuccess }) => {
     setTimeout(() => {
