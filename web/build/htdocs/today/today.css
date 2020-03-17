@@ -1,0 +1,49 @@
+.todayViewContentRow {
+  width: 100%;
+}
+
+.todayViewContentBox {
+  margin-right: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  width: 256px;
+  height: 144px;
+
+  border-radius: 4px;
+  background-color: #E0E0E0;
+  overflow: hidden;
+}
+
+.todayViewContentBox h3 {
+  margin: 16px;
+}
+
+.recent-notes-block {
+  width: 200px;
+  height: 130px;
+  padding: 2px;
+  box-sizing: border-box;
+  background-color: rgb(230, 230, 230);
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+}
+
+.recent-notes-block:hover {
+  background-color: var(--p2t);
+}
+
+.today-a {
+  color: black;
+  text-decoration: none;
+}
+#title-head-wrapper {
+  background-color: var(--p1);
+}
+#title-head > h1 {
+  color:var(--white);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

@@ -1,0 +1,16 @@
+.login-form {
+  margin: auto;
+  position: absolute;
+  top:calc(50% - 60px);
+  left:50%;
+  transform:translate(-50%, -50%);
+  max-width:calc(100% - 40px);
+}
+@media only screen and (max-height:650px) {
+  .login-form {
+    position: relative;
+    top:auto;
+    left:auto;
+    transform: none;
+  }
+}
