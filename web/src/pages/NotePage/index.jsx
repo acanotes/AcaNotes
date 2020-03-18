@@ -20,9 +20,6 @@ const NotePage = (props) => {
     setID(props.match.params.id);
     getNote(props.match.params.id).then((res) => {
       setFileURI(res.data.signedUrl);
-      updateDownloadCount(props.match.params.id).then(() => {
-
-      }).catch(errorLogger)
       setNote(JSON.parse(res.data.note));
     }).catch((error) => {
       errorLogger(error);
