@@ -26,13 +26,12 @@ Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and
 
 ### Run the servers and platform
 
-To get the server up and running for PHP code in `web/public`, run
+To get the server and running for PHP code in `web/public` along with our database, run
 
-```cmd
-heroku local web -f Procfile.dev
+```bash
+docker-compose build
+docker-compose up -d
 ```
-
-This runs our development PHP backend from http://localhost:5000
 
 To start up the frontend, cd into `web` and `npm start` or from root directory run
 
@@ -42,15 +41,10 @@ npm start --prefix=web
 
 This will run the frontend from http://localhost:3000.
 
-To start up MariaDB, the backend database, run
-
-```bash
-docker-composer up -d
-```
 
 Test connection by going to http://localhost:5000/api/connect.php
 
-You can view the database data directly with http://localhost:8080
+You can view the database data directly with http://localhost:8081
 
 By default, root user is `root` and password is dependent on your .env file. Check `sample.env`
 

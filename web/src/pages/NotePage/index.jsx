@@ -25,7 +25,6 @@ const NotePage = (props) => {
     });
   }, []);
   return (
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js"></script>
     <MainLayout>
       <div className="NotePage">
       <Header title="Note"/>
@@ -43,27 +42,6 @@ const NotePage = (props) => {
 
           <div className="pdf-wrapper">
           <h3>Preview</h3>
-
-          <canvas id="pdf-view"></canvas>
-
-          {
-            pdfjsLib.getDocument(fileURI).then(doc => {
-              doc.getPage(1).then(page => {
-                var pdfView = document.getElementById("pdf-view");
-                var context = pdfView.getContext("2d");
-
-                var viewport = page.getViewport(1.5); //size of canvas
-                pdfView.width = viewport.width;
-                pdfView.height = viewport.height;
-
-                page.render({
-                  canvasContext: context,
-                  viewport: viewport
-                })
-  
-              });
-            });
-          }
 
           <div className="download-row">
             <DownloadOutlined />
