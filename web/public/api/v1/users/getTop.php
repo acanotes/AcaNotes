@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['count'])) {
   $sql = "SELECT * FROM users ORDER BY user_rating*user_downloads DESC LIMIT " . $count;
 
   if ($result = mysqli_query($conn, $sql)) {
+    $rows = array();
     while($r = mysqli_fetch_assoc($result)) {
         $rows[] = $r;
     }

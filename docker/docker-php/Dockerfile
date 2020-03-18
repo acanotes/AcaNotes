@@ -19,3 +19,5 @@ RUN apt-get update && \
 # Get the proper extensions
 RUN docker-php-ext-install opcache
 RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mbstring
+RUN docker-php-ext-install exif

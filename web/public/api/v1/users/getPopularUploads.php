@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
   $sql = "SELECT * FROM notes WHERE a_author = '$id' ORDER BY a_downloads*a_rating DESC";
 
   if ($result = mysqli_query($conn, $sql)) {
+    $rows = array();
     while($r = mysqli_fetch_assoc($result)) {
         $rows[] = $r;
     }
