@@ -33,15 +33,19 @@ const NotePage = (props) => {
           <div className="note-meta">
           <p class="author">Author: <a href={'/users/' + note.a_author}>{note.a_author}</a></p>
           <p class="subject">Subject: <a href={'#'}>{note.a_subject}</a></p>
-          <p class="desc">{note.a_description}</p>
-          <p class="downloads">{note.a_downloads}</p>
+          <p class="desc">Description: {note.a_description}</p>
+          <p class="downloads">Downloads: {note.a_downloads}</p>
           <p class="rating">Average Rating: {note.a_rating}/5</p>
           <p>Rate this note</p>
           <Rate value={myRating} onChange={(val) => setMyRating(val)} />
           </div>
 
           <div className="pdf-wrapper">
-          <h3>Preview</h3>
+            <iframe
+           className="pdf-viewer"
+             src={fileURI}
+           >
+           </iframe>
 
           <div className="download-row">
             <DownloadOutlined />
