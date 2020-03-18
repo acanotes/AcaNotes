@@ -131,15 +131,6 @@ CREATE TABLE `ratings`(
   UNIQUE KEY (`note_id`, `note_rater`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
----
---- Dumping data for table 'ratings'
----
-LOCK TABLES 'ratings' WRITE;
-/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
-
-/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

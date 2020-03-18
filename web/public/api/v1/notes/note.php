@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE, PATCH");
 
 $data = json_decode(file_get_contents('php://input'), true);
 require_once($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
@@ -66,6 +66,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
   else {
     http_response_code(420);
     $res['error'] = "Error with sql query";
+    echo json_encode($res);
+    exit();
+  }
+}
+else if ($_SERVER['REQUEST_METHOD'] === 'PATCH' && isset($data['note_id'])) {
+  $id = mysqli_real_escape_string($conn, $data['note_id']);
+  $sql = "SELECT * FROM notes WHERE a_id = " . $id;
+  if ($result = mysqli_query($conn, $sql)) {
+    $resultCheck = mysqli_num_rows($result);
+    if($resultCheck < 1) {
+        http_response_code(420);
+        $res['error'] = "No resource found";
+        echo json_encode($res);
+        exit();
+    }
+    $row_res = mysqli_fetch_assoc($result);
+  }
+  $new_downloads = $row_res['a_downloads'] + 1;
+  $user = $row_res['a_author'];
+  $sql2 = "UPDATE notes SET a_downloads = '$new_downloads' WHERE a_id = $id; UPDATE users SET user_downloads = '$new_downloads' WHERE user_uid = '$user';";
+  if ($result = mysqli_query($conn, $sql2)) {
+    echo json_encode($res);
+    exit();
+  }
+  else {
+    http_response_code(420);
+    $res['error'] = "Couldn't update download stats: " . $sql2;
     echo json_encode($res);
     exit();
   }

@@ -4,7 +4,7 @@ import { Button, Rate } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
-import { getNote } from 'actions/notes';
+import { getNote, updateDownloadCount } from 'actions/notes';
 
 import { errorLogger } from 'utils';
 
@@ -19,11 +19,15 @@ const NotePage = (props) => {
     setID(props.match.params.id);
     getNote(props.match.params.id).then((res) => {
       setFileURI(res.data.signedUrl);
+      updateDownloadCount(props.match.params.id);
       setNote(JSON.parse(res.data.note));
     }).catch((error) => {
       errorLogger(error);
     });
   }, []);
+  const updateDownloads = () => {
+    updateDownloadCount(props.match.params.id);
+  }
   return (
     <MainLayout>
       <div className="NotePage">
@@ -49,7 +53,7 @@ const NotePage = (props) => {
 
           <div className="download-row">
             <DownloadOutlined />
-            <a href={fileURI} target="_blank">Download</a>
+            <a href={fileURI} target="_blank" onClick={updateDownloads}>Download</a>
           </div>
           </div>
         </div>

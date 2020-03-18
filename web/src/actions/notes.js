@@ -67,12 +67,31 @@ export async function getNote(id) {
     if (id === undefined) {
       reject(new Error("No ID given"));
     }
-    axios({method: "GET", url:config.API_URL + config.routes.notes.getNote + "?id=" + id, headers: {
+    axios({method: "GET", url:config.API_URL + config.routes.notes.note + "?id=" + id, headers: {
       Authorization: `Bearer ${getToken()}`
     }}).then((res) => {
       resolve(res);
     }).catch((error) => {
       message.error("Failed to retrieve note");
+      reject(error);
+    });
+  });
+}
+
+export async function updateDownloadCount(id) {
+  return new Promise((resolve, reject) => {
+    if (id === undefined) {
+      reject(new Error("No ID given"));
+    }
+    axios({method: "PATCH", url:config.API_URL + config.routes.notes.note,
+    headers: {
+      Authorization: `Bearer ${getToken()}`
+    },
+      data: {note_id: id}
+    }).then((res) => {
+      resolve(res);
+    }).catch((error) => {
+      console.error("Failed to update note stats");
       reject(error);
     });
   });

@@ -1,8 +1,8 @@
 <?php
-
+  require_once($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
   $dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
   $dotenv->load();
-  
+
   $url = getenv('DB_URL');
   if (empty($url)) {
     $url = getenv('JAWSDB_MARIA_URL');
