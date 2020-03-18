@@ -2,13 +2,13 @@
 version: '3.1'
 
 services:
-  app:
-    container_name: "acanotes-php"
-    build: 'docker/docker-php'
-    ports:
-      - 5000:80
-    volumes:
-      - ./web:/var/www/html
+  # app:
+  #   container_name: "acanotes-php"
+  #   build: 'docker/docker-php'
+  #   ports:
+  #     - 5000:80
+  #   volumes:
+  #     - ./web:/var/www/html
   db:
     container_name: "acanotes-mariadb"
     image: mariadb

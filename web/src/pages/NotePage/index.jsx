@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Document } from 'react-pdf/dist/entry.webpack';
-import { Button, Rate } from 'antd';
+import { Button } from 'antd';
+import RateNote from 'components/Notes/RateNote';
 import { DownloadOutlined } from '@ant-design/icons';
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
@@ -19,14 +20,18 @@ const NotePage = (props) => {
     setID(props.match.params.id);
     getNote(props.match.params.id).then((res) => {
       setFileURI(res.data.signedUrl);
-      updateDownloadCount(props.match.params.id);
+      updateDownloadCount(props.match.params.id).then(() => {
+
+      }).catch(errorLogger)
       setNote(JSON.parse(res.data.note));
     }).catch((error) => {
       errorLogger(error);
     });
   }, []);
   const updateDownloads = () => {
-    updateDownloadCount(props.match.params.id);
+    updateDownloadCount(props.match.params.id).then(() => {
+
+    }).catch(errorLogger)
   }
   return (
     <MainLayout>
@@ -41,7 +46,7 @@ const NotePage = (props) => {
           <p class="downloads">Downloads: {note.a_downloads}</p>
           <p class="rating">Average Rating: {note.a_rating}/5</p>
           <p>Rate this note</p>
-          <Rate value={myRating} onChange={(val) => setMyRating(val)} />
+          <RateNote note_id={note.a_id} />
           </div>
 
           <div className="pdf-wrapper">

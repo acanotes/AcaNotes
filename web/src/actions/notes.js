@@ -83,10 +83,11 @@ export async function updateDownloadCount(id) {
     if (id === undefined) {
       reject(new Error("No ID given"));
     }
-    axios({method: "PATCH", url:config.API_URL + config.routes.notes.note,
-    headers: {
-      Authorization: `Bearer ${getToken()}`
-    },
+    axios({method: "PATCH",
+      url:config.API_URL + config.routes.notes.note,
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      },
       data: {note_id: id}
     }).then((res) => {
       resolve(res);

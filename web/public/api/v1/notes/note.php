@@ -85,14 +85,16 @@ else if ($_SERVER['REQUEST_METHOD'] === 'PATCH' && isset($data['note_id'])) {
   }
   $new_downloads = $row_res['a_downloads'] + 1;
   $user = $row_res['a_author'];
-  $sql2 = "UPDATE notes SET a_downloads = '$new_downloads' WHERE a_id = $id; UPDATE users SET user_downloads = '$new_downloads' WHERE user_uid = '$user';";
-  if ($result = mysqli_query($conn, $sql2)) {
+  $sql2 = "UPDATE notes SET a_downloads = '$new_downloads' WHERE a_id = $id";
+  $sql3 = "UPDATE users SET user_downloads = '$new_downloads' WHERE user_uid = '$user'";
+  if ($result = mysqli_query($conn, $sql2) && $result = mysqli_query($conn, $sql3)) {
     echo json_encode($res);
     exit();
   }
   else {
     http_response_code(420);
-    $res['error'] = "Couldn't update download stats: " . $sql2;
+    $res['error'] = "Couldn't update download stats: ";
+    $res['sql'] = $sql2;
     echo json_encode($res);
     exit();
   }
