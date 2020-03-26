@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Document } from 'react-pdf/dist/entry.webpack';
+import { Document } from 'react-pdf';
 import { Button, Rate } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import {Helmet} from "react-helmet";
@@ -29,9 +29,7 @@ const NotePage = (props) => {
     <MainLayout>
       <div className="NotePage">
       <Header title="Note"/>
-        <Helmet>
-            <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js" async = "true"></script>
-        </Helmet>
+
         <div className="main-container">
           <h2 class="title">{note.a_title}</h2>
           <div className="note-meta">
@@ -44,36 +42,17 @@ const NotePage = (props) => {
           <Rate value={myRating} onChange={(val) => setMyRating(val)} />
           </div>
 
-          <div className="pdf-wrapper">
           <h3>Preview</h3>
 
-          <canvas id="pdf-view"></canvas>
-
-          {
-
-            pdfjsLib.getDocument(fileURI).then(doc => {
-              doc.getPage(1).then(page => {
-                var pdfView = document.getElementById("pdf-view");
-                var context = pdfView.getContext("2d");
-
-                var viewport = page.getViewport(1.5); //size of canvas
-                pdfView.width = viewport.width;
-                pdfView.height = viewport.height;
-
-                page.render({
-                  canvasContext: context,
-                  viewport: viewport
-                })
-  
-              });
-            })
-          }
+          <Document file={fileURI}>
+          <Page pageNumber={1} />
+          </Document>
 
           <div className="download-row">
             <DownloadOutlined />
             <a href={fileURI} target="_blank">Download</a>
           </div>
-          </div>
+
         </div>
       </div>
     </MainLayout>
