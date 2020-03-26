@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Document } from 'react-pdf';
 import { Button, Rate } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
-import {Helmet} from "react-helmet";
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
 import { getNote } from 'actions/notes';
