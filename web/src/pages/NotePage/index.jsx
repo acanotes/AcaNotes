@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Document } from 'react-pdf/dist/entry.webpack';
-import { Button } from 'antd';
-import RateNote from 'components/Notes/RateNote';
+import { Button, Rate } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+import {Helmet} from "react-helmet";
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
-import { getNote, updateDownloadCount } from 'actions/notes';
+import { getNote } from 'actions/notes';
 
 import { errorLogger } from 'utils';
 
@@ -25,43 +25,58 @@ const NotePage = (props) => {
       errorLogger(error);
     });
   }, []);
-  const updateDownloads = () => {
-    updateDownloadCount(props.match.params.id).then(() => {
-
-    }).catch(errorLogger)
-  }
   return (
     <MainLayout>
       <div className="NotePage">
       <Header title="Note"/>
+        <Helmet>
+            <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js"></script>
+        </Helmet>
         <div className="main-container">
           <h2 class="title">{note.a_title}</h2>
           <div className="note-meta">
           <p class="author">Author: <a href={'/users/' + note.a_author}>{note.a_author}</a></p>
           <p class="subject">Subject: <a href={'#'}>{note.a_subject}</a></p>
-          <p class="desc">Description: {note.a_description}</p>
-          <p class="downloads">Downloads: {note.a_downloads}</p>
+          <p class="desc">{note.a_description}</p>
+          <p class="downloads">{note.a_downloads}</p>
           <p class="rating">Average Rating: {note.a_rating}/5</p>
           <p>Rate this note</p>
-          <RateNote note_id={note.a_id} />
+          <Rate value={myRating} onChange={(val) => setMyRating(val)} />
           </div>
 
           <div className="pdf-wrapper">
-            <iframe
-           className="pdf-viewer"
-             src={fileURI}
-           >
-           </iframe>
+          <h3>Preview</h3>
+
+          <canvas id="pdf-view"></canvas>
+
+          {
+            pdfjsLib.getDocument(fileURI).then(doc => {
+              doc.getPage(1).then(page => {
+                var pdfView = document.getElementById("pdf-view");
+                var context = pdfView.getContext("2d");
+
+                var viewport = page.getViewport(1.5); //size of canvas
+                pdfView.width = viewport.width;
+                pdfView.height = viewport.height;
+
+                page.render({
+                  canvasContext: context,
+                  viewport: viewport
+                })
+  
+              });
+            })
+          }
 
           <div className="download-row">
             <DownloadOutlined />
-            <a href={fileURI} target="_blank" onClick={updateDownloads}>Download</a>
+            <a href={fileURI} target="_blank">Download</a>
           </div>
           </div>
         </div>
       </div>
     </MainLayout>
-  )
+  );
 }
 
 export default NotePage
