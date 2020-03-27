@@ -1,22 +1,19 @@
 {
   "files": {
-    "main.css": "./static/css/main.93a02e36.chunk.css",
-    "main.js": "./static/js/main.636194be.chunk.js",
-    "main.js.map": "./static/js/main.636194be.chunk.js.map",
+    "main.css": "./static/css/main.66e45aa3.chunk.css",
+    "main.js": "./static/js/main.49c92288.chunk.js",
+    "main.js.map": "./static/js/main.49c92288.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.2e928bae.js",
     "runtime-main.js.map": "./static/js/runtime-main.2e928bae.js.map",
     "static/css/2.7b4be4c7.chunk.css": "./static/css/2.7b4be4c7.chunk.css",
-    "static/js/2.22010756.chunk.js": "./static/js/2.22010756.chunk.js",
-    "static/js/2.22010756.chunk.js.map": "./static/js/2.22010756.chunk.js.map",
-    "2956f2109851de7e4750.worker.js": "./2956f2109851de7e4750.worker.js",
-    "2956f2109851de7e4750.worker.js.LICENSE.txt": "./2956f2109851de7e4750.worker.js.LICENSE.txt",
-    "2956f2109851de7e4750.worker.js.map": "./2956f2109851de7e4750.worker.js.map",
+    "static/js/2.1e384348.chunk.js": "./static/js/2.1e384348.chunk.js",
+    "static/js/2.1e384348.chunk.js.map": "./static/js/2.1e384348.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.9a6587540d21bfb9b9caded5413a9dfc.js": "./precache-manifest.9a6587540d21bfb9b9caded5413a9dfc.js",
+    "precache-manifest.efa6c5a601f1694d8d051eeee499792f.js": "./precache-manifest.efa6c5a601f1694d8d051eeee499792f.js",
     "service-worker.js": "./service-worker.js",
     "static/css/2.7b4be4c7.chunk.css.map": "./static/css/2.7b4be4c7.chunk.css.map",
-    "static/css/main.93a02e36.chunk.css.map": "./static/css/main.93a02e36.chunk.css.map",
-    "static/js/2.22010756.chunk.js.LICENSE.txt": "./static/js/2.22010756.chunk.js.LICENSE.txt",
+    "static/css/main.66e45aa3.chunk.css.map": "./static/css/main.66e45aa3.chunk.css.map",
+    "static/js/2.1e384348.chunk.js.LICENSE.txt": "./static/js/2.1e384348.chunk.js.LICENSE.txt",
     "static/media/index.less": "./static/media/Cantarell-Regular.ea5ec473.ttf",
     "static/media/logo.svg": "./static/media/logo.5d5d9eef.svg",
     "static/media/mascot.png": "./static/media/mascot.be2424a9.png"
@@ -24,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.2e928bae.js",
     "static/css/2.7b4be4c7.chunk.css",
-    "static/js/2.22010756.chunk.js",
-    "static/css/main.93a02e36.chunk.css",
-    "static/js/main.636194be.chunk.js"
+    "static/js/2.1e384348.chunk.js",
+    "static/css/main.66e45aa3.chunk.css",
+    "static/js/main.49c92288.chunk.js"
   ]
 }

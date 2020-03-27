@@ -1,8 +1,6 @@
 <?php
+  require_once($_SERVER["DOCUMENT_ROOT"] . '/api/inc/base.php');
 
-  $dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
-  $dotenv->load();
-  
   $url = getenv('DB_URL');
   if (empty($url)) {
     $url = getenv('JAWSDB_MARIA_URL');
@@ -12,7 +10,6 @@
   $username = $dbparts['user'];
   $password = $dbparts['pass'];
   $database = ltrim($dbparts['path'],'/');
-
 
   // $hostname = '127.0.0.1';
   // $username = 'root';

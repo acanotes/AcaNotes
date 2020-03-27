@@ -1,8 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
-$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
-$dotenv->load();
-
+require_once($_SERVER["DOCUMENT_ROOT"] . '/api/inc/base.php');
 $s3Client = new Aws\S3\S3Client([
     'version'  => '2006-03-01',
     'region'   => getenv('S3_REGION'),

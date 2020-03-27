@@ -4,9 +4,7 @@ header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 
 
-require_once($_SERVER["DOCUMENT_ROOT"] . '/../vendor/autoload.php');
-$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/../');
-$dotenv->load();
+require_once($_SERVER["DOCUMENT_ROOT"] . '/api/inc/base.php');
 
 include '../../inc/connect.php';
 include '../auth/auth.php';
@@ -28,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search_query'])) {
   $sql = "SELECT * FROM notes WHERE a_title LIKE '%$search%' OR a_subject LIKE '%$search%' OR a_author LIKE '%$search%' OR a_date LIKE '%$search%'";
 
   if ($result = mysqli_query($conn, $sql)) {
+    $rows = array();
     while($r = mysqli_fetch_assoc($result)) {
         $rows[] = $r;
     }
