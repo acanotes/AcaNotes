@@ -5,6 +5,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
 import { getNote } from 'actions/notes';
+import {Document, Page} from 'react-pdf';
 
 import { errorLogger } from 'utils';
 
@@ -41,18 +42,22 @@ const NotePage = (props) => {
           </div>
           
           <div className="pdf-wrapper">
-            
-          <iframe
-          className="pdf-viewer"
-            src={fileURI}
-          >
-          </iframe>
+            <div className="download-row">
+              <DownloadOutlined />
+              <a href={fileURI} target="_blank">Download</a>
+            </div>
 
-          <div className="download-row">
-            <DownloadOutlined />
-            <a href={fileURI} target="_blank">Download</a>
+            <br/>
+
+            <center><h3>Preview</h3></center>
+
+            <Document file={fileURI}>
+              <Page pageNumber={1}/>
+            </Document>
+
           </div>
-          </div>
+
+
         </div>
       </div>
     </MainLayout>
