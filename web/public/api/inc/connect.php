@@ -13,7 +13,6 @@
   $password = $dbparts['pass'];
   $database = ltrim($dbparts['path'],'/');
 
-
   // $hostname = '127.0.0.1';
   // $username = 'root';
   // $password = '123456';
