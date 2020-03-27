@@ -29,6 +29,7 @@ Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and
 To get the server and running for PHP code in `web/public` along with our database, run
 
 ```bash
+cd web
 docker-compose build
 docker-compose up -d
 ```
@@ -65,10 +66,11 @@ Build your most recent code
 cd web && npm run build
 ```
 
-Start up MariaDB
+Start up docker stuff
 
 ```bash
-brew services start mariadb
+cd web
+docker-compose -f docker-compose.prod.yml up
 ```
 
 Run the server
