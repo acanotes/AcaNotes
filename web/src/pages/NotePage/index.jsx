@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Document } from 'react-pdf/dist/entry.webpack';
 import { Button, Rate } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import MainLayout from 'layouts/MainLayout';
