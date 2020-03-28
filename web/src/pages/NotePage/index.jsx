@@ -43,14 +43,20 @@ const NotePage = (props) => {
 
           <h3>Preview</h3>
 
-          <Document file={fileURI}>
-          <Page pageNumber={1} />
-          </Document>
-
           <div className="download-row">
             <DownloadOutlined />
             <a href={fileURI} target="_blank">Download</a>
           </div>
+
+          <center>
+            <h3>Preview</h3>
+
+          <Document file={fileURI}>
+          <Page pageNumber={1} />
+          </Document>
+
+          </center>
+
 
         </div>
       </div>
