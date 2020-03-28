@@ -47,7 +47,7 @@ const NotePage = (props) => {
           </div>
 
           <center>
-            <h3>Preview</h3>
+            <h3>Preview document: </h3>
 
           <Document file={fileURI}>
           <Page pageNumber={1} />
