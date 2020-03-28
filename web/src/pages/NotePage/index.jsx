@@ -41,8 +41,6 @@ const NotePage = (props) => {
           <Rate value={myRating} onChange={(val) => setMyRating(val)} />
           </div>
 
-          <h3>Preview</h3>
-
           <div className="download-row">
             <DownloadOutlined />
             <a href={fileURI} target="_blank">Download</a>
