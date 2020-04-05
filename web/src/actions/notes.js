@@ -155,3 +155,22 @@ export async function getMyRating(noteID) {
     });
   });
 }
+
+export async function recordDownload(noteID) {
+  return new Promise((resolve, reject) => {
+    if (noteID === undefined) {
+      reject(new Error("No id given"));
+    }
+    axios({
+      method: "POST",
+      url: config.API_URL + config.routes.notes.recordDownload + "?note_id=" + noteID,
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    }).then((res) => {
+      resolve(res.data);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+}

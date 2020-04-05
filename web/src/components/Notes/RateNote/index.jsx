@@ -16,7 +16,9 @@ const RateNote = (props) => {
           rating = JSON.parse(rating);
           setMyRating(rating.rating_value);
         }
-      }).catch(errorLogger)
+      }).catch((error) => {
+        
+      })
     }
   }, [props.note_id])
   return (

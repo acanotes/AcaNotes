@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 import { uploadUserImage } from 'actions/users';
 
 import UserContext from 'UserContext.js';
-import { errorLogger } from 'utils';
 
 import './index.less';
 
