@@ -1,7 +1,0 @@
---SQL code for creating tables w/o GUI
-CREATE TABLE comments (
-	cid int(11) not null AUTO_INCREMENT PRIMARY KEY, -- note that "cid" is a name of our variable, and "int(11)" is the type
-    uid varchar(128) not null,
-    date datetime(128) not null, --note that "date" is actually the name of the variable and the C9 IDE simply highlights it
-    message TEXT not null
-)
