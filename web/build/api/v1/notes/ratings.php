@@ -55,8 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username = $token_data['username'];
   $sql = "INSERT into ratings (rating_value, note_id, note_author, note_rater) VALUES ($rating_value, '$note_id', '$a_author', '$username')
           ON DUPLICATE KEY UPDATE rating_value=$rating_value";
-  if ($result = mysqli_query($conn, $sql)) {
 
+  if ($result = mysqli_query($conn, $sql)) {
+   
   }
   else {
     http_response_code(400);
@@ -87,9 +88,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $sql = "UPDATE notes SET a_rating = '$avg_rating' WHERE a_id = $note_id";
   // UPDATE Note average rating
   if ($result = mysqli_query($conn, $sql)) {
-    $res['res'] = "Success";
-    echo json_encode($res);
-    exit();
+    // update user's average rating
+    $sql = "SELECT AVG(a_rating) AS average_rating FROM notes WHERE a_author = '$a_author'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result); 
+    $this_rating = $row['average_rating'];
+    $sql = "UPDATE users SET user_rating = '$this_rating' WHERE user_uid = '$a_author'";
+    if ($result = mysqli_query($conn, $sql)) {
+      $res['res'] = "success";
+      echo json_encode($res);
+      exit();
+    }
+    else {
+      http_response_code(400);
+      $res['error'] = "Error with sql query 4.1";
+      echo json_encode($res);
+      exit();
+    }
+    
   }
   else {
     http_response_code(400);
