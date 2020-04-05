@@ -83,6 +83,20 @@ Both frontend and backend are serviced here through http://localhost:5000
 
 Note all backend only works through http://localhost:5000/api
 
+## Serving to Staging
+
+First run
+
+```bash
+npm run build
+```
+
+from the `web` folder and push it all to staging
+
+Deploy from dashboard for staging branch to the install path `staging_dev`
+
+Ensure that the correct contents are inside the web/.env file to be read by our backend
+
 
 ## Serving to Production
 
