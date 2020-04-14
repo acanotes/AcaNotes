@@ -139,6 +139,7 @@ const CreateNote = () => {
         </Form.Item>
         <Form.Item validateStatus={errors.file && "error"}>
           <Upload name="file" type="file" customRequest={dummyRequest} fileList={fileList} onChange={onFileChange}
+            accept=".pdf"
             onRemove={
               () => {
                 setFileList([]);
@@ -148,6 +149,7 @@ const CreateNote = () => {
             <Button>
               <UploadOutlined /> Click to Upload
             </Button>
+            <p style={{fontSize:'1em', marginTop:'12px'}}>You can only submit PDFs</p>
           </Upload>
         </Form.Item>
         <Form.Item>
