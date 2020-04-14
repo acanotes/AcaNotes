@@ -9,6 +9,7 @@
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
     "dotenv": "^8.2.0",
+    "jspdf": "^1.5.3",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "react": "^16.12.0",
