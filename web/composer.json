@@ -3,6 +3,7 @@
     "require": {
         "firebase/php-jwt": "^5.0",
         "aws/aws-sdk-php": "~3.0",
-        "sendgrid/sendgrid": "~7"
+        "sendgrid/sendgrid": "~7",
+        "vlucas/phpdotenv": "^4.1"
     }
 }

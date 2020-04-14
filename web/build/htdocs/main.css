@@ -1,0 +1,65 @@
+/*
+@font-face
+{
+  font-family: 'Calibri';
+  src: url("Fonts/Calibri.ttf");
+
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+/* Moved all Navigation Bar related CSS to header.php  --Vince14Genius */
+
+
+
+@font-face
+{
+    font-family: 'Cantarell';
+    src: url("Fonts/Cantarell-Regular.ttf");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+* 
+{
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: Cantarell;
+}
+
+#white
+{
+    color:white;
+}
+
+#black
+{
+    color:black;
+}
+
+#footer
+{
+    background-color:#0597FF;
+    width:100%;
+    height:15%;
+    bottom:0;
+}
+#footer-copyright{
+    background-color:#005693;
+    height:50px;
+}
+
+.margin-paragraph
+{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input
+{
+    border:1px solid #000000;
+}

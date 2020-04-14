@@ -1,7 +1,0 @@
-[19-Jul-2017 14:03:50 UTC] PHP Warning:  include(../notes-wiki/header-notes-wiki.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/topic/storage/1.php on line 3
-[19-Jul-2017 14:03:50 UTC] PHP Stack trace:
-[19-Jul-2017 14:03:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/topic/storage/1.php:0
-[19-Jul-2017 14:03:50 UTC] PHP Warning:  include(): Failed opening '../notes-wiki/header-notes-wiki.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/topic/storage/1.php on line 3
-[19-Jul-2017 14:03:50 UTC] PHP Stack trace:
-[19-Jul-2017 14:03:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/topic/storage/1.php:0
-[19-Jul-2017 14:09:36 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/ubuntu/workspace/topic/storage/1.php on line 3

@@ -26,34 +26,36 @@ Then in the global config (in `/usr/local/etc/apache2/`), enable `mod_proxy` and
 
 ### Run the servers and platform
 
-To get the server up and running for PHP code in `web/public`, run
+To get the server and running for PHP code in `web/public` along with our database, run
 
-```cmd
-heroku local web -f Procfile.dev
+```bash
+cd web
+docker-compose build
+docker-compose up -d
 ```
-
-This runs our development PHP backend from http://localhost:5000
 
 To start up the frontend, cd into `web` and `npm start` or from root directory run
 
-```cmd
+```bash
 npm start --prefix=web
 ```
 
 This will run the frontend from http://localhost:3000.
 
-To start up MariaDB, on Mac OS run
-
-```cmd
-brew services start mariadb
-```
 
 Test connection by going to http://localhost:5000/api/connect.php
 
+You can view the database data directly with http://localhost:8081
 
-Populate the local database with default data:
-```cmd
-mysql -h spvunyfm598dw67v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u jkxyx78jy5ggulvw -pquwwf5br6nbc2giz thw42gj9sxaws9w7 < populate_data.sql
+By default, root user is `root` and password is dependent on your .env file. Check `sample.env`
+
+Local database will by default populate itself with `populate_db/populdate_data.sql` and whatever other .sql files are in the `populate_db` folder.
+
+To repopulate the database from a clean slate, run
+
+```bash
+docker-compose rm -fv
+docker-compose up
 ```
 
 ## Local Production Setup
@@ -64,10 +66,11 @@ Build your most recent code
 cd web && npm run build
 ```
 
-Start up MariaDB
+Start up docker stuff
 
 ```bash
-brew services start mariadb
+cd web
+docker-compose -f docker-compose.prod.yml up
 ```
 
 Run the server
@@ -80,6 +83,35 @@ Both frontend and backend are serviced here through http://localhost:5000
 
 Note all backend only works through http://localhost:5000/api
 
+## Serving to Staging
+
+First run
+
+```bash
+npm run build
+```
+
+from the `web` folder and push it all to staging
+
+Deploy from dashboard for staging branch to the install path `staging_dev`
+
+Ensure that the correct contents are inside the web/.env file to be read by our backend
+
+
+## Serving to Production
+
+First run
+
+```bash
+npm run build
+```
+
+from the `web` folder and push it all to master
+
+Deploy from dashboard for master branch
+
+Ensure that the correct contents are inside the web/.env file to be read by our backend
+
 ## Common Issues...
 
 On Mac OS, if you can't seem to run `heroku local web -f Procfile.dev`, make sure to kill the httpd process. Find its PID by running `httpd` and then kill it
@@ -89,7 +121,7 @@ If for some reason too much memory is used, likely an exception was thrown and j
 
 ## Installations
 
-Install PHP, composer, npm, and Node.js
+Install PHP, composer, npm, and Node.js, docker
 
 
 

@@ -21,5 +21,8 @@
     "antd": "^4.0.0",
     "design": "^0.1.0",
     "react-composer": "^5.0.1"
+  },
+  "devDependencies": {
+    "react-helmet": "^5.2.1"
   }
 }

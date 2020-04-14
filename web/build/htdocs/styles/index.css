@@ -1,0 +1,42 @@
+.hero > #title {
+  font-size:4.5em;
+  padding-top: 100px;
+
+}
+.hero-wrapper {
+  height:calc(100vh - 60px - 120px);
+  min-height: 600px;
+  background-color: var(--p1);
+  color:var(--white);
+}
+.hero {
+  padding-left: 100px;
+  display: inline-block;
+}
+.point > .title {
+  font-size:2em;
+}
+.point {
+  padding-top:40px;
+  padding-bottom: 40px;
+}
+#signup-title {
+  font-size:3em;
+  text-align: center;
+}
+#signup-button {
+  font-size:2em;
+  height:2em;
+}
+#signup-button-link {
+  left:50%;
+  margin-top: 1em;
+  position: relative;
+  transform: translateX(-50%);
+}
+#signupSection {
+}
+.bottom-background {
+  margin-top: -200px;
+  z-index:-1;
+}

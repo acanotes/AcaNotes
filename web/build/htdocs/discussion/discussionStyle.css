@@ -1,0 +1,10 @@
+#title-head-wrapper {
+  text-align: center;
+  background-color:var(--p1);
+  color:var(--white);
+}
+#title-head > h1 {
+  color:var(--white);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

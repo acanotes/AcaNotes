@@ -1,0 +1,29 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  # app:
+  #   container_name: "acanotes-php"
+  #   build: 'docker/docker-php'
+  #   ports:
+  #     - 5000:80
+  #   volumes:
+  #     - ./:/var/www/html
+  db:
+    container_name: "acanotes-mariadb"
+    image: mariadb
+    restart: always
+    ports:
+      - ${MYSQL_PORT}:3306
+    volumes:
+      - ./populate_db:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+  adminer:
+    container_name: "acanotes-adminer"
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080

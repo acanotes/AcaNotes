@@ -26,7 +26,10 @@ export default {
     notes: {
       getTopNotes: "/api/v1/notes/getTopNotes.php",
       latest:"/api/v1/notes/latest.php",
-      getNote: "/api/v1/notes/getNote.php"
+      note: "/api/v1/notes/note.php",
+      ratings: "/api/v1/notes/ratings.php",
+      search: "/api/v1/notes/searchNotes.php",
+      recordDownload: "/api/v1/notes/recordDownload.php"
     }
   }
 }

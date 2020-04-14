@@ -10,7 +10,7 @@ import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
 import ContributorsPage from './pages/Contributors';
 import NotesWikiPage from './pages/NotesWiki';
-
+import SearchResultsPage from './pages/NotesWiki/SearchResultsPage';
 import NotePage from './pages/NotePage';
 
 import CreatePage from './pages/Create';
@@ -73,6 +73,8 @@ function App() {
               <Route path="/create" exact component={() => requireAuth(CreatePage)} />
               <Route path="/today" exact component={() => requireAuth(TodayPage)} />
               <Route path="/notes-wiki" exact component={() => requireAuth(NotesWikiPage)} />
+              <Route path="/notes-wiki/search/" exact component={() => requireAuth(SearchResultsPage, {query: ""})} />
+              <Route path="/notes-wiki/search/:query" exact component={(props) => requireAuth(SearchResultsPage, props)} />
               <Route path="/notes-wiki/note/:id" exact component={(props) => requireAuth(NotePage, props)} />
             </UserProvider>
           </Switch>

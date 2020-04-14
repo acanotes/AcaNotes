@@ -1,0 +1,167 @@
+.button-topic img
+{
+  max-width: 200px;
+  width: 100%;
+}
+/*.button-topic {
+}*/
+#title-head-wrapper {
+  background-color: var(--p1);
+}
+#title-head > h1 {
+  color:var(--white);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+span.stars, span.stars span {
+  display: block;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/747/star-o-white.svg) 0 0 repeat-x;
+  width: 200px; /* width of a star multiplied by 5 */
+  height: 40px; /* the height of the star */
+  background-size: 40px 40px;
+}
+
+span.stars span {
+  background-position: 0 0;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/747/star.svg);
+}
+
+.recent-notes-block {
+  width: 350px;
+  height: 250px;
+  padding: 2px;
+  box-sizing: border-box;
+  background-color: rgb(230, 230, 230);
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  overflow-y: scroll;
+}
+
+.recent-notes-block:hover {
+  background-color: var(--p2t);
+}
+
+.search-result-block {
+  
+  width: 100%;
+  height: 230px;
+  padding: 5px;
+  border-radius: 1px;
+  box-sizing: border-box;
+  background-color: white;
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  overflow-y: scroll;
+}
+
+.search-result-block:hover {
+  /*background-color: rgb(230, 230, 230);*/
+  background-color: var(--p2t);
+}
+
+.search-result-a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+.search-wrapper{
+  position: relative;
+  width: 500px;
+  display: flex;
+}
+
+.search-term {
+  box-sizing: border-box;
+  flex: 8;
+  border: 1px solid rgb(54, 172, 184);
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  color: black;
+}
+
+.search-button {
+  box-sizing: border-box;
+  flex: 1;
+  height: 40px;
+  border: 1px solid rgb(54, 172, 184);
+  background: rgb(54, 172, 184);
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  border-left:0;
+}
+
+.notes-wiki-a {
+  color: black;
+  text-decoration: none;
+}
+
+/* This is just for temporary purposes, the actual icons will look better */
+:root {
+  --green: rgba(22, 199, 66, 0.8);
+  --orange: rgba(255, 197, 71, 0.9);
+  --blue: rgba(37, 150, 202, 0.8);
+  --red: rgba(223, 64, 16, 0.8);
+}
+
+.category-block {
+  width: 200px;
+  height: 200px;
+  padding: 2px;
+  margin: 5px;
+  box-sizing: border-box;
+  background-color: rgb(230, 230, 230);
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+}
+
+.category-block:hover {
+  /*background-color: var(--p2t);*/
+  /*left down blur size colour*/
+  box-shadow: 3px 8px 10px 11px rgba(46, 83, 81, 0.18);
+  outline: 2px solid rgba(46, 83, 81, 0.18);
+}
+
+.tag {
+  width: 150px;
+  height: 30px;
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  overflow: hidden;
+}
+
+.tag:hover {
+  background-color: rgba(54, 150, 184, 0.25);
+  cursor: pointer;
+}
+
+.star-rating .star {
+  width:25px;height:25px;
+  display: inline-block;
+  cursor: pointer;
+}
+.star-rating .star svg path {
+  fill: rgb(218,222,232); 
+}
+.star-rating .star:hover svg path {
+  fill: #fce514; 
+}
+.star-rating .star.selected svg path {
+  fill: #fce514;
+}
+/*.search-button {
+  margin-left: 10px;
+  height: calc(1.6em + 10px);
+}*/
