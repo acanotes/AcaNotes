@@ -7,6 +7,7 @@ import DownloadNote from 'components/Notes/DownloadNote';
 import MainLayout from 'layouts/MainLayout';
 import Header from 'components/Header';
 import { getNote } from 'actions/notes';
+import {Document, Page} from 'react-pdf';
 
 import { errorLogger } from 'utils';
 
